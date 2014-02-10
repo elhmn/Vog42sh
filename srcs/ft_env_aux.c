@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_minishell1.h"
+#include "42sh.h"
 
 void	ft_chg_str_in_tab(char **tab, char *str)
 {

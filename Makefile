@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_minishell3
+NAME = 42sh
 OBJDIR = ./
 SRCDIR = srcs/
 BINDIR = ./
@@ -25,26 +25,26 @@ CEXEC = $(addprefix $(BINDIR), $(NAME))
 all: $(NAME)
 
 $(NAME): $(CSRCS) ./includes/
-	@ make -C ./libs/printf/
-	@ make -C ./libs/libft/
-	@ gcc $(FLAGS) -I./includes/ -L./libs/libft -lft -L./libs/printf \
+	make -C ./libs/printf/
+	make -C ./libs/libft/
+	gcc $(FLAGS) -I./includes/ -L./libs/libft -lft -L./libs/printf \
 		-lftprintf	-o $(NAME) $(CSRCS)
 
 debug: $(CSRCS) ./includes/
-	@ make -C ./libs/printf/
-	@ make debug -C ./libs/libft/
-	@ gcc $(FLAGS) -g -I./includes/ -L./libs/libft -lft -L./libs/printf \
+	make -C ./libs/printf/
+	make debug -C ./libs/libft/
+	gcc $(FLAGS) -g -I./includes/ -L./libs/libft -lft -L./libs/printf \
 		-lftprintf	-o $(NAME) $(CSRCS)
 
 clean:
-	@ make clean -C ./libs/printf/
-	@ make clean -C ./libs/libft/
-	@ rm -rf $(COBJS) $(NAME).dSYM
+	make clean -C ./libs/printf/
+	make clean -C ./libs/libft/
+	rm -rf $(COBJS) $(NAME).dSYM
 
 fclean: clean
-	@ make fclean -C ./libs/printf/
-	@ make fclean -C ./libs/libft/
-	@ rm -f $(NAME)
+	make fclean -C ./libs/printf/
+	make fclean -C ./libs/libft/
+	rm -f $(NAME)
 
 re: fclean all
 

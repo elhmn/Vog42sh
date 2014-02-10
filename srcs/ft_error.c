@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_minishell1.h"
+#include "42sh.h"
 
 static void		ft_error_aux(int code, char *str)
 {

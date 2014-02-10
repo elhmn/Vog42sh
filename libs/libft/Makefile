@@ -36,20 +36,20 @@ CEXEC = $(addprefix $(BINDIR), $(NAME))
 all: $(NAME)
 
 $(NAME): $(CSRCS) ./includes/
-	@ gcc $(FLAGS) -c $(CSRCS) -I.
-	@ ar rc $(NAME) $(COBJS)
-	@ ranlib $(NAME)
+	gcc $(FLAGS) -c $(CSRCS) -I.
+	ar rc $(NAME) $(COBJS)
+	ranlib $(NAME)
 
 debug: $(CSRCS) ./includes/
-	@ gcc $(FLAGS) -g -c $(CSRCS) -I.
-	@ ar rc $(NAME) $(COBJS)
-	@ ranlib $(NAME)
+	gcc $(FLAGS) -g -c $(CSRCS) -I.
+	ar rc $(NAME) $(COBJS)
+	ranlib $(NAME)
 
 clean:
-	@ rm -f $(COBJS)
+	rm -f $(COBJS)
 
 fclean: clean
-	@ rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_minishell1.h                                    :+:      :+:    :+:   */
+/*   42sh.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MINISHELL1_H
-# define FT_MINISHELL1_H
+#ifndef 42SH_H
+# define 42SH_H
 # include <signal.h>
 # include <unistd.h>
 # include "get_next_line.h"
@@ -21,4 +21,4 @@ int		ft_env_main(char **str, char **enviro);
 void	ft_sig(int	sig);
 void	ft_error(int code, char *str);
 void	ft_chg_str_in_tab(char **tab, char *str);
-#endif /* !FT_MINISHELL1_H */
+#endif /* !42SH_H */

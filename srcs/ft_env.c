@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_minishell1.h"
+#include "42sh.h"
 
 static void		ft_env(char **str, char **enviro)
 {
