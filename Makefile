@@ -14,7 +14,7 @@ NAME = 42sh
 OBJDIR = ./
 SRCDIR = srcs/
 BINDIR = ./
-SRCS = ft_minishell1.c get_next_line.c ft_env.c ft_env_aux.c ft_error.c
+SRCS = 42sh.c get_next_line.c ft_env.c ft_env_aux.c ft_error.c
 FLAGS = -Wall -Wextra -Werror
 
 OBJS = $(SRCS:.c=.o)
@@ -48,4 +48,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean fclean
+.PHONY: clean fclean re

@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "get_next_line.h"
-#include "ft_minishell1.h"
+#include "sh.h"
 
 static void		work_on_buffers(char *buf_tmp, int i, char *buf, int choice)
 {

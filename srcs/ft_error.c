@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "42sh.h"
+#include "sh.h"
 
 static void		ft_error_aux(int code, char *str)
 {

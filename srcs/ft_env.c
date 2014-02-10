@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "42sh.h"
+#include "sh.h"
 
 static void		ft_env(char **str, char **enviro)
 {
