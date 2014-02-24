@@ -1,17 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sig_handle.h                                       :+:      :+:    :+:   */
+/*   ft_ilen.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/24 14:20:08 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/24 14:29:00 by troussel         ###   ########.fr       */
+/*   Created: 2013/12/19 10:39:26 by troussel          #+#    #+#             */
+/*   Updated: 2013/12/19 10:43:30 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef		SIGHANDLE_H
-# define	SIGHANDLE_H
-# include	<signal.h>
-# include	"ftprintf.h"
+int	ft_ilen(int n)
+{
+	int	size;
+	int	i;
 
-#endif		/* !SIGHANDLE_H */
+	if (n == 0)
+		return (1);
+	size = (n < 0 ? 1 : 0);
+	n = (n < 0 ? -n : n);
+	i = 1;
+	while (n != 0)
+	{
+		n = n / 10;
+		size++;
+		i++;
+	}
+	return (size);
+}

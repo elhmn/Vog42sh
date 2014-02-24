@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sig_handle.h                                       :+:      :+:    :+:   */
+/*   ft_putnbrui.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/24 14:20:08 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/24 14:29:00 by troussel         ###   ########.fr       */
+/*   Created: 2013/12/19 13:07:14 by troussel          #+#    #+#             */
+/*   Updated: 2013/12/19 13:13:57 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef		SIGHANDLE_H
-# define	SIGHANDLE_H
-# include	<signal.h>
-# include	"ftprintf.h"
+#include "ftprintf.h"
 
-#endif		/* !SIGHANDLE_H */
+void	ft_putnbrui(unsigned int n)
+{
+	ft_putstr(ft_uitoa(n));
+}

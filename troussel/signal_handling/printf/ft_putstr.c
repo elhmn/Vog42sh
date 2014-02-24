@@ -1,17 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sig_handle.h                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/24 14:20:08 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/24 14:29:00 by troussel         ###   ########.fr       */
+/*   Created: 2013/11/22 17:27:04 by troussel          #+#    #+#             */
+/*   Updated: 2013/12/19 11:19:38 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef		SIGHANDLE_H
-# define	SIGHANDLE_H
-# include	<signal.h>
-# include	"ftprintf.h"
+#include "ftprintf.h"
 
-#endif		/* !SIGHANDLE_H */
+void	ft_putstr(const char *s)
+{
+	int	i;
+
+	i = -1;
+	while (s[++i])
+		write(1, &s[i], 1);
+}
