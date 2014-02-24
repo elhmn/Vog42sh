@@ -6,12 +6,29 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/24 14:23:31 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/24 14:54:27 by troussel         ###   ########.fr       */
+/*   Updated: 2014/02/24 15:18:29 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "sig_handle.h"
 
-static
+static void	sig_resp(int sig)
+{
+	if (sig == SIGUSR1 || sig == SIGUSR2)
+	{
+		ft_printf("\nexit\n");
+		exit(0);
+	}
+	else if (sig == SIGSEGV || sig == SIGBUS)
+	{
+		ft_printf("something went wrong, escape sequence initiate\n");
+		/***des fonctions de restauration ?***/
+		exit(-1);
+	}
+	else if (sig == SIGINFO)
+		ft_printf("$> ");
+	else
+		ft_printf("\n$> ");
+}
 
 void		sig_handle(void)
 {
