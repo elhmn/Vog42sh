@@ -13,7 +13,7 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
-typedef struct s_tok
+typedef	struct s_tok
 {
 	char	*cmd;
 	char	*opt;
@@ -21,6 +21,6 @@ typedef struct s_tok
 	int		pip;
 	int		pipr;
 	int		type;
-} t_tok;
+}				t_tok;
 
-#endif
+#endif /* !STRUCT_H */
