@@ -6,11 +6,13 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/28 13:34:38 by troussel         ###   ########.fr       */
+/*   Updated: 2014/02/28 14:42:30 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef		42SH_H
 # define	42SH_H
+
 /*
 typedef struct	s_env
 {
@@ -27,15 +29,19 @@ typedef struct	s_lex
 	struct s_lex	*nxt;
 }				t_lex;
 
+/* Decrit une commande intercalee sois par && sois || sois | */
+
+// EX : ls -l file >> outfile 
+
 typedef struct	s_cmd
 {
-	char			*prg;
-	char			**arg;
-	char			*ifile;
-	char			*ofile;
-	int				flg_app;
-	int				pipe_w;
-	int				pipe_r;
+	char			*prg; // ls
+	char			**arg; // arg0 = ls ; arg1 = -l ; arg2 = file
+	char			*ifile; // NULL
+	char			*ofile; // outfile
+	int				flg_app; // 1
+	int				pipe_w; // 0
+	int				pipe_r; // 0
 	struct s_cmd	*nxt;
 }				t_cmd;
 
@@ -77,14 +83,14 @@ void		prompt(char *str); /*Affiche le prompt avec str devant si str non NULL */
 int			get_next_line(int const fd, char **line);
 
 t_lex		*lexer(char *str); /*Le lexer...renvoi NULL si erreur*/
-t_for		*parser(t_lex *lst);
+t_for		*parser(t_lex *lst); /* Liste d arbre */
 
-int			parse_syn(t_lex *lst);
-t_tokl		*parse_tok(t_lex *lst);
-t_tree		*parse_tree(t_lex *lst); /*cree la structure commande en meme tps que l'arbre*/
+int			parse_syn(t_lex *lst); /* verification syntaxique */
+t_tokl		*parse_tok(t_lex *lst); /* cree une list de token */
+t_tree		*parse_tree(t_lex *lst); /* cree la structure commande en meme tps que l'arbre */
 t_for		*add_tree(t_tree *wood, t_for *lst);
 
-void		tree_walker(t_tree *wood);
-int			node_run(t_cmd *data);
+void		tree_walker(t_tree *wood); /* Fonction de parcour d'arbre */
+int			node_run(t_cmd *data); /* Fontion d execution de noeud */
 
 #endif		/* !42SH_H */
