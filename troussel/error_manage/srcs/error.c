@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/25 13:52:07 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/25 15:06:50 by troussel         ###   ########.fr       */
+/*   Updated: 2014/02/28 10:38:50 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "error_sh.h"
@@ -37,7 +37,7 @@ void		error(int code, char *str, int esc_seq)
 		code_seq(code);
 	if (esc_seq)
 	{
-		puterror("exit\n");
+		puterror("\nexit\n");
 		if (code)
 			exit(code);
 		exit(-1);
