@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/28 18:59:58 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/03 15:36:14 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ t_for		*parser(t_lex *lst); /* Liste d arbre */
 
 int			parse_syn(t_lex *lst); /* verification syntaxique */
 t_tokl		*parse_tok(t_lex *lst); /* cree une list de token */
-t_tree		*parse_tree(t_lex *lst); /* cree la structure commande en meme tps que l'arbre */
+t_tree		*parse_tree(t_lex *lst, t_cmd *prv, int prv_pipe); /* cree la structure commande en meme tps que l'arbre */
 t_for		*add_tree(t_tree *wood, t_for *lst);
 
 void		tree_walker(t_tree *wood); /* Fonction de parcour d'arbre */

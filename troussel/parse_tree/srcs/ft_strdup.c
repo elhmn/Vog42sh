@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_tree.h                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/28 17:06:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/03 15:32:32 by troussel         ###   ########.fr       */
+/*   Created: 2013/11/19 16:27:18 by troussel          #+#    #+#             */
+/*   Updated: 2014/03/03 14:36:17 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef		PARSETREE_H
-# define 	PARSETREE_H
+#include "parse_tree.h"
+#include <stdlib.h>
 
-t_lex		*treat_cmd(char **prg, t_lex *tok);
-t_lex		*treat_inf(char **ifile, t_lex *tok);
-t_lex		*treat_arg(char ***arg, t_lex *tok);
+char	*ft_strdup(const char *s1)
+{
+	size_t	size_s1;
+	char	*s2;
+	int		i;
 
-t_cmd		*add_cmdd(t_cmd *lst);
-t_tree		*add_leaf(t_cmd *elm);
-
-char		*ft_strdup(const char *s1);
-size_t		ft_strlen(const char *s);
-
-#endif		/* !PARSETREE_H */
+	size_s1 = ft_strlen(s1) + 1;
+	s2 = (char*)malloc(size_s1);
+	if (s2 == NULL)
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		s2[i] = s1[i];
+		i++;
+	}
+	s2[i] = '\0';
+	return (s2);
+}
