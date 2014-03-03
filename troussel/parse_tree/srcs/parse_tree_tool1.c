@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/03 14:17:09 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/03 15:31:47 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/03 15:45:22 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "42sh.h"
@@ -31,6 +31,8 @@ t_lex		*treat_inf(char **ifile, t_lex *tok)
 		tmp = tmp->nxt->nxt;
 	if (tmp->tok != IN || !tmp->nxt || tmp->nxt->tok != FIL || !tmp->nxt->elm)
 		error(0, "Parse anomaly", 1);
+	if (ifile[0])
+		ft_strdel(ifile);
 	ifile[0] = ft_strdup(tmp->nxt->elm);
 	return (tmp->nxt->nxt);
 }
@@ -70,4 +72,10 @@ t_lex		*treat_arg(char ***arg, t_lex *tok)
 		tmp = tmp->nxt;
 	}
 	return (tmp);
+}
+
+t_lex		*treat_pipe(int *pipe_w, t_lex *tok)
+{
+	pipe_w[0] = 1;
+	return (tok->nxt)
 }
