@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_sh.h                                         :+:      :+:    :+:   */
+/*   ft_uilen.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/25 13:46:37 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/25 14:57:30 by troussel         ###   ########.fr       */
+/*   Created: 2013/12/19 13:11:38 by troussel          #+#    #+#             */
+/*   Updated: 2013/12/19 13:14:19 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef		ERRORSH_H
-# define	ERRORSH_H
-# include	<stdlib.h>
+int	ft_uilen(unsigned int n)
+{
+	int	size;
+	int	i;
 
-# define	CMDNF	1
-# define	ARG_M	2
-# define	ARG_F	3
-# define	PERM	4
-# define	UNDEF	5
-
-void	puterror(char const *s);
-void	error(int code, char *str, int esc_seq);
-
-#endif		/* !ERRORSH_H */
+	size = 0;
+	if (n == 0)
+		return (1);
+	i = 1;
+	while (n != 0)
+	{
+		n = n / 10;
+		size++;
+		i++;
+	}
+	return (size);
+}

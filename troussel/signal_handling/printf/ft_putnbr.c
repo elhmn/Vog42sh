@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_sh.h                                         :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/25 13:46:37 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/25 14:57:30 by troussel         ###   ########.fr       */
+/*   Created: 2013/11/24 15:55:29 by troussel          #+#    #+#             */
+/*   Updated: 2013/12/19 11:07:32 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef		ERRORSH_H
-# define	ERRORSH_H
-# include	<stdlib.h>
+#include "ftprintf.h"
 
-# define	CMDNF	1
-# define	ARG_M	2
-# define	ARG_F	3
-# define	PERM	4
-# define	UNDEF	5
-
-void	puterror(char const *s);
-void	error(int code, char *str, int esc_seq);
-
-#endif		/* !ERRORSH_H */
+void	ft_putnbr(int n)
+{
+	ft_putstr(ft_itoa(n));
+}

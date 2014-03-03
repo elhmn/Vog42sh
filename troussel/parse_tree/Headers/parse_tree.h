@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_sh.h                                         :+:      :+:    :+:   */
+/*   parse_tree.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/25 13:46:37 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/25 14:57:30 by troussel         ###   ########.fr       */
+/*   Created: 2014/02/28 17:06:14 by troussel          #+#    #+#             */
+/*   Updated: 2014/02/28 17:25:46 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef		ERRORSH_H
-# define	ERRORSH_H
-# include	<stdlib.h>
+#ifndef		PARSETREE_H
+# define 	PARSETREE_H
 
-# define	CMDNF	1
-# define	ARG_M	2
-# define	ARG_F	3
-# define	PERM	4
-# define	UNDEF	5
 
-void	puterror(char const *s);
-void	error(int code, char *str, int esc_seq);
-
-#endif		/* !ERRORSH_H */
+#endif		/* !PARSETREE_H */

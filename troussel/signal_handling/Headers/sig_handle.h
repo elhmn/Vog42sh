@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_sh.h                                         :+:      :+:    :+:   */
+/*   sig_handle.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/25 13:46:37 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/25 14:57:30 by troussel         ###   ########.fr       */
+/*   Created: 2014/02/24 14:20:08 by troussel          #+#    #+#             */
+/*   Updated: 2014/02/24 14:39:37 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef		ERRORSH_H
-# define	ERRORSH_H
-# include	<stdlib.h>
+#ifndef		SIGHANDLE_H
+# define	SIGHANDLE_H
+# include	<signal.h>
+# include	"ftprintf.h"
 
-# define	CMDNF	1
-# define	ARG_M	2
-# define	ARG_F	3
-# define	PERM	4
-# define	UNDEF	5
+void	sig_handle(void);
 
-void	puterror(char const *s);
-void	error(int code, char *str, int esc_seq);
-
-#endif		/* !ERRORSH_H */
+#endif		/* !SIGHANDLE_H */
