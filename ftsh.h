@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   42sh.h                                             :+:      :+:    :+:   */
+/*   ftsh.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/04 14:48:34 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/07 11:25:21 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		42SH_H
-# define	42SH_H
+#ifndef		FTSH_H
+# define	FTSH_H
 
 /*
 typedef struct	s_env
@@ -93,4 +93,4 @@ t_for		*add_tree(t_tree *wood, t_for *lst);
 void		tree_walker(t_tree *wood, char **path, char **environ); /* Fonction de parcour d'arbre */
 int			node_run(t_cmd *data, char **path, char **environ); /* Fontion d execution de noeud */
 
-#endif		/* !42SH_H */
+#endif		/* !FTSH_H */
