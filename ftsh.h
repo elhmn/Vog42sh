@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/07 11:25:21 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/07 12:47:34 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ t_tokl		*parse_tok(t_lex *lst); /* cree une list de token */
 t_tree		*parse_tree(t_lex *lst, t_cmd *prv, int prv_pipe); /* cree la structure commande en meme tps que l'arbre */
 t_for		*add_tree(t_tree *wood, t_for *lst);
 
-void		tree_walker(t_tree *wood, char **path, char **environ); /* Fonction de parcour d'arbre */
-int			node_run(t_cmd *data, char **path, char **environ); /* Fontion d execution de noeud */
+void		tree_walker(t_tree *wood, t_env *env); /* Fonction de parcour d'arbre */
+int			node_run(t_cmd *data, t_env *env); /* Fontion d execution de noeud */
 
 #endif		/* !FTSH_H */
