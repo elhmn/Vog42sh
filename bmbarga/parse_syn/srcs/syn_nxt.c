@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 11:10:04 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/07 16:35:25 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/11 16:46:06 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,19 @@ char	*tok_to_char(int  tok)
 	else if (tok == AND)
 		return ("&&");
 	else if (tok == PIPE)
+		return ("|");
+	else if (tok == OR)
 		return ("||");
 	else 
 		return ("newline");
+}
+
+void	parse_error(int tok_nxt)
+{
+	error(SYN, NULL, 0);
+	ft_putstr(" \'");
+	ft_putstr(tok_to_char(tok_nxt));
+	ft_putstr("\'\n");
 }
 
 // syn after commande
@@ -65,12 +75,7 @@ int		syn_separ(int tok_nxt)
 		&& tok_nxt != VOID)
 	{
 		if (is_separ(tok_nxt))
-		{
-			error(SYN, NULL, 0);
-			ft_putstr("\'");
-			ft_putstr(tok_to_char(tok_nxt));
-			ft_putstr("\'\n");
-		}
+			parse_error(tok_nxt);
 		return (FALSE);
 	}
 	return (TRUE);
@@ -99,19 +104,9 @@ int		syn_redir(int tok_nxt)
 	if (!is_fil(tok_nxt) && tok_nxt == VOID)
 	{
 		if (is_redir(tok_nxt))
-		{
-			error(SYN, NULL, 0);
-			ft_putstr("\'");
-			ft_putstr(tok_to_char(tok_nxt));
-			ft_putstr("\'\n");
-		}
-		if (tok_nxt == VOID)
-		{
-			error(SYN, NULL, 0);
-			ft_putstr("\'");
-			ft_putstr(tok_to_char(tok_nxt));
-			ft_putstr("\'\n");
-		}
+			parse_error(tok_nxt);
+		else if (tok_nxt == VOID)
+			parse_error(tok_nxt);
 		return (FALSE);
 	}
 	else

@@ -6,13 +6,15 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 11:15:31 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/11 15:19:59 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/11 17:38:18 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_syn.h"
 #include "ftsh.h"
 #include <stdio.h>
+
+void	parse_error(int tok_nxt);
 
 // regroupement de token par groupe
 
@@ -50,6 +52,14 @@ static int		check_syn(t_lex *lst)
 	tok = 0;
 	while (tok != lst->tok && tok < 11)
 		tok++;
+	if ((lst->tok == AND || lst->tok == OR) 
+			&& (lst->nxt->tok == VOID
+				|| is_arg(lst->nxt->tok)
+				|| is_fil(lst->nxt->tok)))
+	{
+		parse_error(lst->tok);
+		return (FALSE);
+	}
 	if (tok == lst->tok)
 		if (!f[convert(tok)](lst->nxt->tok)) //test if tok match with tok_nxt
 			return (FALSE);
@@ -65,16 +75,18 @@ int		parse_syn(t_lex *lst)
 
 	i = 0;
 	tmp = lst;
-	while (tmp->nxt)
+	if (lst->tok == AND || lst->tok == OR) 
+	{
+		parse_error(lst->tok);
+		return (FALSE);
+	}
+	while (tmp && tmp->nxt)
 	{
 		//printlst(tmp);
-		printf("tmp_lst_next[ i = %d ] = [ %s ]\n", i, tmp->nxt->elm);
-		printf("tmp_lst_next_tok[ i = %d ] = [ %d ]\n", i, tmp->nxt->tok);
+		//printf("tmp_lst_next[ i = %d ] = [ %s ]\n", i, tmp->nxt->elm);
+		//printf("tmp_lst_next_tok[ i = %d ] = [ %d ]\n", i, tmp->nxt->tok);
 		if (!check_syn(tmp))
-		{
-			printf("FALSE\n");
 			return (FALSE);
-		}
 		//printf("tmp_lst[ %d ] = [ %s ]\n", i, tmp->elm);
 		tmp = tmp->nxt;
 		i++;
