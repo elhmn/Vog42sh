@@ -9,11 +9,11 @@
 /*   Updated: 2014/02/28 17:26:39 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "42sh.h"
+#include "ftsh.h"
 #include "parse_tok.h"
 #include "error_sh.h"
 
-t_tokl	add_tokl(t_lex *lex, t_tokl *lst)
+t_tokl	*add_tokl(t_lex *lex, t_tokl *lst)
 {
 	t_tokl	*new;
 	t_tokl	*tmp;
@@ -34,9 +34,10 @@ t_tokl	add_tokl(t_lex *lex, t_tokl *lst)
 	return (lst);
 }
 
-void    rmrf_lex(t_lex *lex)
+void    rmrf_lex(t_lex **lex)
 {
-	ft_strdel(lex->elm);
-	free(lex);
-	lex = NULL;
+	free(&lex[0]->elm);
+	lex[0]->elm = NULL;
+//	free(&lex[0]);
+	lex[0] = NULL;
 }

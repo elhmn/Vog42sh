@@ -9,7 +9,9 @@
 /*   Updated: 2014/02/28 17:52:32 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "42sh.h"
+#include "ftsh.h"
+#include "parse_tok.h"
+#include <unistd.h>
 
 static t_lex	*def_newlst(t_lex *tmp)
 {
@@ -43,7 +45,7 @@ t_tokl			*parse_tok(t_lex *lexlst)
 		lexlst = def_newlst(tmp);
 	/*pop de SEMIC*/
 		if (tmp->nxt)
-			rmrf_lex(tmp->lex);
+			rmrf_lex(&tmp->nxt);
 	/*Set du ptr avant SEMIC a NULL*/
 		tmp->nxt = NULL;
 	/*ajout de la copie du ptr lst dans la liste de tokl*/
