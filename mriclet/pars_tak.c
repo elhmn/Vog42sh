@@ -6,9 +6,21 @@
 /*   By: mriclet <mriclet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/07 14:53:53 by mriclet           #+#    #+#             */
-/*   Updated: 2014/03/07 16:54:12 by mriclet          ###   ########.fr       */
+/*   Updated: 2014/03/11 15:52:29 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ftsh.h"
+#include <stdlib.h>
+
+void		*ft_memalloc(size_t size)
+{
+	void	ret;
+
+	ret = malloc(size);
+	if (!ret)
+		exit(1);
+	return (ret);
+}
 
 t_for		*alloc_new_tree(t_takl *lst, int opt, t_for *prev, int prev_pipe_w)
 {
@@ -49,14 +61,4 @@ t_for		*pars_for(t_tokl *lst)
 	}
 	elem->nxt = NULL;
 	return (first);
-}
-
-void		*ft_memalloc(size_t size)
-{
-	void	ret;
-
-	ret = malloc(size);
-	if (!ret)
-		exit(1);
-	return (ret);
 }
