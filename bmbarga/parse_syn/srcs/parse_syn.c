@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 11:15:31 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/11 15:04:25 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/11 15:19:59 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,13 @@ int		parse_syn(t_lex *lst)
 	while (tmp->nxt)
 	{
 		//printlst(tmp);
-		//printf("tmp_lst_next[ i = %d ] = [ %s ]\n", i, tmp->nxt->elm);
-		//printf("tmp_lst_next_tok[ i = %d ] = [ %d ]\n", i, tmp->nxt->tok);
+		printf("tmp_lst_next[ i = %d ] = [ %s ]\n", i, tmp->nxt->elm);
+		printf("tmp_lst_next_tok[ i = %d ] = [ %d ]\n", i, tmp->nxt->tok);
 		if (!check_syn(tmp))
+		{
+			printf("FALSE\n");
 			return (FALSE);
+		}
 		//printf("tmp_lst[ %d ] = [ %s ]\n", i, tmp->elm);
 		tmp = tmp->nxt;
 		i++;
