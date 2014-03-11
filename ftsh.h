@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/07 15:03:48 by mriclet          ###   ########.fr       */
+/*   Updated: 2014/03/11 15:26:15 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ enum	e_tok
 	PIPE,
 	SEMIC, /* point virgule*/
 	AND, /* " && " */
-	OR /* " || "*/
+	OR, /* " || "*/
+	VOID
 };
 
 void		sig_handle(void);
