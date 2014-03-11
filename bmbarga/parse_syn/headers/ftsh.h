@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   42sh.h                                             :+:      :+:    :+:   */
+/*   ftsh.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/04 13:10:26 by bmbarga          ###   ########.fr       */
+/*   Created: 2014/03/04 15:41:51 by bmbarga           #+#    #+#             */
+/*   Updated: 2014/03/07 15:02:04 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		42SH_H
-# define	42SH_H
+#ifndef		FTSH_H
+# define	FTSH_H
 
 /*
 typedef struct	s_env
@@ -75,8 +75,8 @@ enum	e_tok
 	PIPE,
 	SEMIC, /* point virgule*/
 	AND, /* " && " */
-	OR /* " || "*/
-	VOID /* nothing */
+	OR,
+	VOID/* " || "*/
 };
 
 void		sig_handle(void);
@@ -88,10 +88,11 @@ t_for		*parser(t_lex *lst); /* Liste d arbre */
 
 int			parse_syn(t_lex *lst); /* verification syntaxique */
 t_tokl		*parse_tok(t_lex *lst); /* cree une list de token */
+t_for		*parse_for(t_tokl *lst);
 t_tree		*parse_tree(t_lex *lst); /* cree la structure commande en meme tps que l'arbre */
 t_for		*add_tree(t_tree *wood, t_for *lst);
 
 void		tree_walker(t_tree *wood); /* Fonction de parcour d'arbre */
 int			node_run(t_cmd *data); /* Fontion d execution de noeud */
 
-#endif		/* !42SH_H */
+#endif		/* !FTSH_H */

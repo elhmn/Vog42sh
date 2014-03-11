@@ -6,11 +6,11 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 11:11:07 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/04 11:14:59 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/04 16:17:47 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef
+#ifndef SYN_NXT_H
 # define SYN_NXT_H
 
 int		syn_cmd(int tok_nxt);
