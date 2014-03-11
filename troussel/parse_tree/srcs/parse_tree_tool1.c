@@ -6,11 +6,12 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/03 14:17:09 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/03 15:45:22 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/11 17:09:09 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "42sh.h"
+#include "ftsh.h"
 #include "parse_tree.h"
+#include "error_sh.h"
 
 t_lex		*treat_cmd(char **prg, t_lex *tok)
 {
@@ -37,7 +38,7 @@ t_lex		*treat_inf(char **ifile, t_lex *tok)
 	return (tmp->nxt->nxt);
 }
 
-static int	*count_arg(t_lex *tok)
+static int	count_arg(t_lex *tok)
 {
 	int		i;
 	t_lex	*tmp;
@@ -77,5 +78,5 @@ t_lex		*treat_arg(char ***arg, t_lex *tok)
 t_lex		*treat_pipe(int *pipe_w, t_lex *tok)
 {
 	pipe_w[0] = 1;
-	return (tok->nxt)
+	return (tok->nxt);
 }

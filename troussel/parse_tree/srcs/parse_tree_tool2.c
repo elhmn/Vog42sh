@@ -6,11 +6,12 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/03 14:17:09 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/03 16:02:10 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/11 17:09:29 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "42sh.h"
+#include "ftsh.h"
 #include "parse_tree.h"
+#include "error_sh.h"
 
 t_lex		*treat_outf(char **ofile, int *flg_app, t_lex *tok)
 {

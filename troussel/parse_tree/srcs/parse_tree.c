@@ -6,13 +6,14 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/03 16:03:56 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/03 16:35:45 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/11 17:05:06 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "42sh.h"
+#include "ftsh.h"
 #include "parse_tree.h"
+#include "error_sh.h"
 
-static t_tree	*parse_tree(t_lex *lst, t_cmd *node, t_tree *leaf)
+static t_tree	*parse_tree_aux(t_lex *lst, t_cmd *node, t_tree *leaf)
 {
 	if (!lst)
 		return (leaf);

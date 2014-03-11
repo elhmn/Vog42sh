@@ -6,10 +6,10 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/27 14:56:39 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/03 15:46:16 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/11 16:02:57 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <strdel.h>
+#include <stdlib.h>
 
 void	ft_strdel(char **as)
 {

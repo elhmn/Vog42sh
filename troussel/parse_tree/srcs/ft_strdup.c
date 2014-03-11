@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 16:27:18 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/03 14:36:17 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/11 16:43:37 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "parse_tree.h"
@@ -14,7 +14,7 @@
 
 char	*ft_strdup(const char *s1)
 {
-	size_t	size_s1;
+	int		size_s1;
 	char	*s2;
 	int		i;
 

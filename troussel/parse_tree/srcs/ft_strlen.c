@@ -6,12 +6,12 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 14:40:49 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/03 14:37:24 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/11 16:43:56 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	size_t	sizeout;
+	int		sizeout;
 	int		i;
 
 	i = 0;

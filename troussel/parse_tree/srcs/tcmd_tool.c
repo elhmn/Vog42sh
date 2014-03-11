@@ -6,11 +6,13 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/03 13:40:56 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/07 15:19:12 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/11 17:10:35 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "42sh.h"
+#include "ftsh.h"
 #include "parse_tree.h"
+#include "error_sh.h"
+#include <stdlib.h>
 
 static t_cmd	*init_new(t_cmd *new)
 {
