@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_sh.h                                         :+:      :+:    :+:   */
+/*   parse_tok.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/25 13:46:37 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/07 13:01:51 by bmbarga          ###   ########.fr       */
+/*   Created: 2014/02/28 17:06:14 by troussel          #+#    #+#             */
+/*   Updated: 2014/02/28 17:25:46 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef		ERRORSH_H
-# define	ERRORSH_H
-# include	<stdlib.h>
+#ifndef		PARSETOK_H
+# define 	PARSETOK_H
 
-# define	CMDNF	1
-# define	ARG_M	2
-# define	ARG_F	3
-# define	PERM	4
-# define	SYN		5
-# define	UNDEF	6
+t_tokl	*add_tokl(t_lex *lex, t_tokl *lst);
 
-void	puterror(char const *s);
-void	error(int code, char *str, int esc_seq);
+void	rmrf_lex(t_lex **lex);
+void	ft_strdel(char **as);
 
-#endif		/* !ERRORSH_H */
+#endif		/* !PARSETOK_H */

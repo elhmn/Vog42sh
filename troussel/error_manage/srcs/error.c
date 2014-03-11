@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/25 13:52:07 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/28 10:38:50 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/07 16:31:07 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "error_sh.h"
@@ -21,6 +21,8 @@ static void	code_seq(int code)
 		puterror("Too few arguments\n");
 	else if (code == PERM)
 		puterror("Permission denied\n");
+	else if (code == SYN)
+		puterror("syntax error near unexpected token ");
 	else if (code >= UNDEF)
 		puterror("Undefined error\n");
 }
