@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/12 14:15:29 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/12 13:24:24 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct	s_path
 ** qui modifie si besoin l'environnement
 ** *var pointe vers le premier maillon de t_venv
 ** *path pointe vers le premier maillon de t_path
-** **env est la liste chainé t_venv convertie en char** avant chq node_run
+** **env et la liste chainé t_venv convertie en char** avant chq node_run
 ** last_ret contient la valeur de retour de la derniere execution (initialisé à 0 au lancement du shell)
 */
 
@@ -61,9 +61,6 @@ typedef struct	s_env
 t_venv	*add_venv(char *var, char *val, t_venv *lst);
 t_venv	*pop_venv(char *var, t_venv *lst);
 t_venv	*mod_venv(char *var, char *val, t_venv *lst);
-
-char	**conv_env(t_venv *lst);
-char	**free_env(char **env);
 
 t_path	*add_path(char *dir, t_path *lst);
 

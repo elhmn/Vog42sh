@@ -6,10 +6,11 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 16:56:28 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/07 13:28:28 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/12 13:54:21 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ftsh.h"
+#include "ftsh_env.h"
 #include "node_run.h"
 #include <unistd.h>
 
