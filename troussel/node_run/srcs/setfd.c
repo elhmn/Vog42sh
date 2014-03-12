@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 16:56:28 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/12 13:55:05 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/12 14:21:27 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ftsh.h"
@@ -48,7 +48,7 @@ int				setfdfil(t_cmd *dat, int pip[1][2][2], int swtch)
 	{
 		if (dat->pipe_r)
 			close(pip[0][!swtch][0]);
-		if ((pip[0][!swtch][0] = openf*ile(dat->ifile, 1, 0)) == -1)
+		if ((pip[0][!swtch][0] = openfile(dat->ifile, 1, 0)) == -1)
 		{
 			error(UNDEF, dat->ifile, 0);
 			++error;

@@ -6,10 +6,10 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 16:56:28 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/12 13:54:21 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/12 16:01:12 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ftsh.h"
+
 #include "ftsh_env.h"
 #include "node_run.h"
 #include <unistd.h>
@@ -29,7 +29,6 @@ int				node_run(t_cmd *dat, t_env *env)
 	static int	swtch = 1;
 	static int	pip[2][2];
 	pid_t		fk;
-	int			retval;
 
 	swtch = (swtch ? 0 : 1);
 	if (!pipe_w && !pipe_r && isbuiltin(dat))
