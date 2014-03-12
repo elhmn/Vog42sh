@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/03 14:17:09 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/11 17:09:09 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/12 13:03:52 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ftsh.h"
@@ -59,15 +59,15 @@ t_lex		*treat_arg(char ***arg, t_lex *tok)
 	t_lex	*tmp;
 
 	i = count_arg(tok);
-	if (!(arg[0] = (char**)malloc(sizeof(char*) * (i + 1))))
+	if (!(arg[0] = (char**)malloc(sizeof(char*) * (i + 2))))
 	{
 		error(0, "Out of memory", 0);
 		return (NULL);
 	}
-	arg[0][i] = 0;
+	arg[0][i + 1] = 0;
 	tmp = tok;
-	i = -1;
-	while (tmp->tok == ARG)
+	i = 0;
+	while (tmp && tmp->tok == ARG)
 	{
 		arg[0][++i] = ft_strdup(tmp->elm);
 		tmp = tmp->nxt;
