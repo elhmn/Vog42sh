@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/03 14:17:09 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/12 12:37:30 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/13 15:04:17 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ftsh.h"
@@ -20,8 +20,12 @@ t_lex		*treat_outf(char **ofile, int *flg_app, t_lex *tok)
 	if (!tok->nxt || tok->nxt->tok != FIL || !tok->nxt->elm)
 		error(0, "Parse anomaly", 1);
 	tmp = tok;
-	while (tmp->nxt->nxt->tok == OUT || tmp->nxt->nxt->tok == APP)
+	while (tmp->nxt->nxt)
+	{
+		if (!(tmp->nxt->nxt->tok == OUT || tmp->nxt->nxt->tok == APP))
+			break ;
 		tmp = tmp->nxt->nxt;
+	}
 	if (!tmp->nxt || tmp->nxt->tok != FIL || !tmp->nxt->elm)
 		error(0, "Parse anomaly", 1);
 	if (ofile[0])

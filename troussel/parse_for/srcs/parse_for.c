@@ -6,11 +6,12 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 13:20:20 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/13 13:37:26 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/13 15:06:10 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftsh.h"
+#include "error_sh.h"
 #include <stdlib.h>
 
 static t_for	*init_tree(t_tree *wood, t_for *new)
@@ -25,7 +26,7 @@ t_for			*add_tree(t_tree *wood, t_for *lst)
 	t_for	*tmp;
 	t_for	*new;
 
-	if (!(new = (t_for*)malloc(sizeof(t_for))));
+	if (!(new = (t_for*)malloc(sizeof(t_for))))
 	{
 		error(0, "Out of memory", 0);
 		return (NULL);
@@ -43,10 +44,10 @@ t_for			*add_tree(t_tree *wood, t_for *lst)
 static t_lex	*free_lex(t_lex *lst)
 {
 	if (lst->nxt)
-		lst->nxt = free_lex(lst_nxt);
+		lst->nxt = free_lex(lst->nxt);
 	free(&lst->elm);
 	lst->elm = NULL;
-	free(&lst[0]);
+//	free(lst);
 	lst = NULL;
 	return (NULL);
 }

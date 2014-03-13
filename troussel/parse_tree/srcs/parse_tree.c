@@ -6,12 +6,14 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/03 16:03:56 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/12 13:11:17 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/13 15:19:33 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ftsh.h"
 #include "parse_tree.h"
 #include "error_sh.h"
+
+#include <stdio.h>/******************/
 
 static t_tree	*load_argo(t_tree *leaf)
 {
@@ -38,6 +40,7 @@ static t_tree	*parse_tree_aux(t_lex *lst, t_cmd *node, t_tree *leaf)
 		return (load_argo(leaf));
 	if (lst->tok == IN || lst->tok == OUT || lst->tok == APP)
 		lst = treat_redir(&node, lst);
+	printf("tok is \"%s\"\n", lst->elm);/*****************/
 	if (!lst)
 		return (load_argo(leaf));
 	if (lst->tok == PIPE)
