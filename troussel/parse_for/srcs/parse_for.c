@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 13:20:20 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/13 15:06:10 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/13 16:01:49 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,15 @@ t_for			*add_tree(t_tree *wood, t_for *lst)
 
 static t_lex	*free_lex(t_lex *lst)
 {
+	char	*str;
+
 	if (lst->nxt)
 		lst->nxt = free_lex(lst->nxt);
-	free(&lst->elm);
+	str = lst->elm;
+	free(str);
+	str = NULL;
 	lst->elm = NULL;
-//	free(lst);
+	free(lst);
 	lst = NULL;
 	return (NULL);
 }

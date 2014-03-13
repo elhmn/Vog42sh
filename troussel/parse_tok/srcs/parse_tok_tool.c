@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 16:58:16 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/28 17:26:39 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/13 16:02:44 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ftsh.h"
@@ -36,8 +36,12 @@ t_tokl	*add_tokl(t_lex *lex, t_tokl *lst)
 
 void    rmrf_lex(t_lex **lex)
 {
-	free(&lex[0]->elm);
+	char	*str;
+
+	str = lex[0]->elm;
 	lex[0]->elm = NULL;
-//	free(&lex[0]);
+	free(str);
+	str = NULL;
+	free(lex[0]);
 	lex[0] = NULL;
 }

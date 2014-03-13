@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/03 14:17:09 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/13 15:04:17 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/13 15:36:33 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ftsh.h"
@@ -40,11 +40,11 @@ t_lex		*treat_redir(t_cmd **cmd, t_lex *tok)
 	t_lex	*tmp;
 
 	tmp = tok;
-	while (tmp->tok == OUT || tmp->tok == IN || tmp->tok == APP)
+	while (tmp && (tmp->tok == OUT || tmp->tok == IN || tmp->tok == APP))
 	{
 		if (tmp->tok == OUT || tmp->tok == APP)
 			tmp = treat_outf(&cmd[0]->ofile, &cmd[0]->flg_app, tmp);
-		if (tmp->tok == IN)
+		if (tmp && (tmp->tok == IN))
 			tmp = treat_inf(&cmd[0]->ifile, tmp);
 	}
 	return (tmp);
