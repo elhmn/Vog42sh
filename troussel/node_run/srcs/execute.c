@@ -6,12 +6,15 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/07 13:27:51 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/12 16:00:21 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/14 13:34:50 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "node_run.h"
 #include "ftsh_env.h"
+#include "error_sh.h"
+#include "builtin.h"/**********************/
 #include <unistd.h>
+#include <stdlib.h>
 
 static int	*save_fd(int *sav_fd)
 {
@@ -72,7 +75,7 @@ int			execute(t_cmd *dat, t_env *env, int pip[2][2], int swtch)
 	}
 	if (isbuiltin(dat))
 	{
-		if (dat->pipe_w || pipe_r)
+		if (dat->pipe_w || dat->pipe_r)
 			exit(builtin(dat, env));
 		else
 		{

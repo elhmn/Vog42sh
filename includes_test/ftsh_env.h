@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/12 13:24:24 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/14 13:34:16 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct	s_varenv
 {
 	char				*var;
 	char				*val;
-	struct s_varenv		*nxt
+	struct s_varenv		*nxt;
 }				t_venv;
 
 /*
@@ -65,8 +65,5 @@ t_venv	*mod_venv(char *var, char *val, t_venv *lst);
 t_path	*add_path(char *dir, t_path *lst);
 
 t_env	init_env(t_venv *lst_venv, t_path *lst_path);
-
-int		isbuiltin(t_cmd *dat);/*renvoie 1 si dat->prg est un builtin, 0 sinon*/
-int		builtin(t_cmd *dat, t_env *env);/*execute le builtin approprié et renvoi le return de ce dernier*/
 
 #endif		/* !FTSH_ENV_H */

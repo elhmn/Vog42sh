@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/12 14:15:29 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/14 12:11:47 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct	s_varenv
 {
 	char				*var;
 	char				*val;
-	struct s_varenv		*nxt
+	struct s_varenv		*nxt;
 }				t_venv;
 
 /*

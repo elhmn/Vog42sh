@@ -6,13 +6,15 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/12 16:00:46 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/12 17:14:23 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/14 12:43:19 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "node_run.h"
 #include "ftsh_env.h"
 #include "libft.h"
+#include "error_sh.h"
+#include <unistd.h>
 
 void		run_bin(t_cmd *dat, t_env *env)
 {
@@ -33,4 +35,3 @@ void		run_bin(t_cmd *dat, t_env *env)
 	}
 	error(UNDEF, "A binary file disappeared", 1);
 }
-
