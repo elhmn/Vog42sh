@@ -22,7 +22,7 @@ void	ft_putstr(const char *s);
 void	ft_strclr(char *s);
 void	ft_putendl(const char *s);
 int		ft_isdigit(int c);
-char	*ft_strchr(char *s, int c);
+char	*ft_strchr(const char *s, int c);
 int		ft_atoi(const char *str);
 void	ft_putnbr(int n);
 int		ft_strcmp(const char *s1, const char *s2);

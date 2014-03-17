@@ -18,6 +18,8 @@ void			print_lex(t_lex *lex)
 		ft_printf("pas de lex !\n");
 	while (lex)
 	{
+		if (lex->tok == VOID)
+			break ;
 		ft_printf("\n/------------------\n");
 		ft_printf("elm = %s\n", lex->elm);
 		ft_printf("tok = %d\n", lex->tok);

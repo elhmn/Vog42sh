@@ -12,8 +12,6 @@
 
 #include "lexer.h"
 
-// Reception: cd dev && cp ../img/toto.jpg titi && env -i &&
-
 static int			whoami_aux(char *line, int *tok)
 {
 	if (ft_strchr(line, '|'))
@@ -45,7 +43,6 @@ static int			whoami_aux(char *line, int *tok)
 
 static int			whoami(char *line, int *tok)
 {
-	ft_printf("whoami : line =>%s<=\n", line);
 	if (line[0] == '-')
 	{
 		*tok = ARG;
@@ -82,13 +79,11 @@ static t_lex		*fill_lex(t_lex *lex, char **line)
 	{
 		if (!whoami(line[i], &tok))
 		{
-			lex = add_lex(lex, line[i], tok);
+			lex = add_lex(lex, line[i++], tok);
 			lex = add_lex(lex, line[i], FIL);
 		}
 		else
 			lex = add_lex(lex, line[i], tok);
-		ft_printf("ohohohowowo\n");
-		ft_printf("lex->elm = %s\n", lex->elm);
 		i++;
 	}
 	lex = add_lex(lex, NULL, VOID);
@@ -102,7 +97,6 @@ t_lex				*lexer(char *str)
 
 	line = NULL;
 	lex = NULL;
-	//lex = init_lex(lex);
 	if (!str || !str[0])
 		return (lex);
 	if (!(str = ft_strtrim_lex(str)))

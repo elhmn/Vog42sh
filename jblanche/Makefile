@@ -25,7 +25,7 @@ CEXEC = $(addprefix $(BINDIR), $(NAME))
 
 all: $(NAME)
 
-$(NAME): $(CSRCS) ./includes/
+$(NAME): $(CSRCS) ./includes/ ./libft/srcs ./printf/srcs
 	@ make -C ./libft/
 	@ make -C ./printf/
 	@ gcc $(FLAGS) -I./includes/ $(LIBS) -o $(NAME) $(CSRCS)
