@@ -14,32 +14,84 @@
 
 // Reception: cd dev && cp ../img/toto.jpg titi && env -i &&
 
-static t_lex		*add_if_spec(t_lex *tmp, char *line, int *i)
+static int			whoami_aux(char *line, int *tok)
 {
-	if (!ft_strchr(line, '>') || !ft_strchr(line, '<')
-		|| !ft_strstr(line, ">>") || !ft_strchr(line, '|')
-		|| !ft_strchr(line, ';') || !ft_strstr(line, "&&")
-		|| !ft_strstr(line, "||"))
+	if (ft_strchr(line, '|'))
 	{
-		tmp = add_lex(tmp, line, CMD);
-		*i = *i + 1;
+		*tok = PIPE;
+		return (1);
 	}
-	return (tmp);
+	else if (ft_strchr(line, ';'))
+	{
+		*tok = SEMIC;
+		return (1);
+	}
+	else if (ft_strstr(line, "&&"))
+	{
+		*tok = AND;
+		return (1);
+	}
+	else if (ft_strstr(line, "||"))
+	{
+		*tok = OR;
+		return (1);
+	}
+	else
+	{
+		*tok = CMD;
+		return (1);
+	}
+}
+
+static int			whoami(char *line, int *tok)
+{
+	ft_printf("whoami : line =>%s<=\n", line);
+	if (line[0] == '-')
+	{
+		*tok = ARG;
+		return (1);
+	}
+	else if (ft_strchr(line, '>'))
+	{
+		*tok = OUT;
+		return (0);
+	}
+	else if (ft_strchr(line, '<'))
+	{
+		*tok = IN;
+		return (0);
+	}
+	else if (ft_strstr(line, ">>"))
+	{
+		*tok = APP;
+		return (0);
+	}
+	return (whoami_aux(line, tok));
 }
 
 static t_lex		*fill_lex(t_lex *lex, char **line)
 {
 	int				i;
+	int				tok;
 	t_lex			*tmp;
 
+	tok = 0;
 	i = 0;
 	tmp = lex;
 	while (line[i])
 	{
-		tmp = add_if_spec(tmp, line[i], &i);
-		add_lex(lex, line[i], CMD);
+		if (!whoami(line[i], &tok))
+		{
+			lex = add_lex(lex, line[i], tok);
+			lex = add_lex(lex, line[i], FIL);
+		}
+		else
+			lex = add_lex(lex, line[i], tok);
+		ft_printf("ohohohowowo\n");
+		ft_printf("lex->elm = %s\n", lex->elm);
 		i++;
 	}
+	lex = add_lex(lex, NULL, VOID);
 	return (lex);
 }
 
@@ -50,17 +102,14 @@ t_lex				*lexer(char *str)
 
 	line = NULL;
 	lex = NULL;
-	lex = init_lex(lex);
+	//lex = init_lex(lex);
 	if (!str || !str[0])
 		return (lex);
-	ft_printf("lexer initialized\n");
-	ft_printf("str = %s\n", str);
 	if (!(str = ft_strtrim_lex(str)))
 		return (NULL);
-	ft_printf("cp9\n");
-	ft_printf("str cut. str = %s, line[0] = %s\n", str, line[0]);
 	line = ft_strsplit(str, ' ');
 	lex = fill_lex(lex, line);
+	print_lex(lex);
 	return (lex);
 }
 

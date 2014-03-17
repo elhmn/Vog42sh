@@ -15,6 +15,7 @@
 # include "../libft/includes/libft.h"
 # include "lexer.h"
 # include "ftsh.h"
+void		print_lex(t_lex *lex);
 t_lex		*init_lex(t_lex *lex);
 t_lex		*free_lex(t_lex *lex);
 t_lex		*add_lex(t_lex *lex, char *elm, int tok);

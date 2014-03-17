@@ -19,7 +19,7 @@ char	*ft_strchr(char *s, int c)
 
 	loc = 0;
 	ch = c;
-	while (s[loc] != ch)
+	while (s && s[loc] && s[loc] != ch)
 	{
 		if (!s[loc])
 			return (NULL);

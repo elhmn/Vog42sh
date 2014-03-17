@@ -12,6 +12,20 @@
 
 #include "lexer.h"
 
+void			print_lex(t_lex *lex)
+{
+	if (!lex || !lex->elm)
+		ft_printf("pas de lex !\n");
+	while (lex)
+	{
+		ft_printf("\n/------------------\n");
+		ft_printf("elm = %s\n", lex->elm);
+		ft_printf("tok = %d\n", lex->tok);
+		ft_printf("------------------/\n");
+		lex = lex->nxt;
+	}
+}
+
 t_lex			*init_lex(t_lex *lex)
 {
 	lex = (t_lex *)malloc(sizeof(t_lex));
@@ -27,12 +41,19 @@ t_lex			*add_lex(t_lex *lex, char *elm, int tok)
 	t_lex		*new_node;
 
 	tmp = lex;
-	while (tmp->nxt)
-		tmp = tmp->nxt;
-	new_node = init_lex(lex);
-	new_node->elm = ft_strdup(elm);
+	new_node = NULL;
+	new_node = init_lex(new_node);
 	new_node->tok = tok;
-	tmp->nxt = new_node;
+	if (elm)
+		new_node->elm = ft_strdup(elm);
+	if (!lex)
+		return (new_node);
+	else
+	{
+		while (tmp->nxt)
+			tmp = tmp->nxt;
+		tmp->nxt = new_node;
+	}
 	return (lex);
 }
 
