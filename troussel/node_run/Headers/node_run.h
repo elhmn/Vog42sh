@@ -14,10 +14,14 @@
 # define 	NODERUN_H
 # include	"ftsh.h"
 
-int		execute(t_cmd *dat, t_env *env, int pip[2][2], int swtch);/*configure les fd et execute le binaire désigné par dat ou, le builtin, dans ce cas la fonction appel exit avec la valeur de retour du builtin*/
+void	execute(t_cmd *dat, t_env *env, int pip[2][2], int swtch);
 
 int		setpipe(t_cmd *dat, int pip[1][2][2], int swtch);
 int		setfdfil(t_cmd *dat, int pip[1][2][2], int swtch);
+
+int		*save_fd(int *sav_fd);
+int		*dup_exec(t_cmd *dat, int pip[2][2], int swtch, int *sav_fd);
+void	restore_fd(int *fd);
 
 int		seekbin(t_cmd *dat, t_path *lst);
 void	run_bin(t_cmd *dat, t_env *lst);
