@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/19 16:20:30 by jblanche          #+#    #+#             */
-/*   Updated: 2013/11/20 16:50:39 by jblanche         ###   ########.fr       */
+/*   Created: 2013/11/19 13:13:27 by jblanche          #+#    #+#             */
+/*   Updated: 2013/12/20 12:32:56 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "ft_printf.h"
 
-char	*ft_strchr(char *s, int c)
+size_t		ft_strlen(const char *s)
 {
-	char	ch;
-	int		loc;
+	size_t	count;
 
-	loc = 0;
-	ch = c;
-	while (s[loc] != ch)
-	{
-		if (!s[loc])
-			return (NULL);
-		loc++;
-	}
-	return ((char *) (s + loc));
+	count = 0;
+	while (s[count])
+		count++;
+	return (count);
 }
-

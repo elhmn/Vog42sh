@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   42sh.h                                             :+:      :+:    :+:   */
+/*   ftsh.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/28 17:21:28 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/11 15:53:36 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		42SH_H
-# define	42SH_H
+#ifndef		FTSH_H
+# define	FTSH_H
 
 /*
 typedef struct	s_env
@@ -31,8 +31,8 @@ typedef struct	s_lex
 
 /* Decrit une commande intercalee sois par && sois || sois | */
 
-// EX : ls -l file >> outfile 
-
+// EX : ls -l file >> outfile
+/*
 typedef struct	s_cmd
 {
 	char			*prg; // ls
@@ -63,7 +63,7 @@ typedef struct	s_toklst
 	struct s_lex		*lst;
 	struct s_toklst		*nxt;
 }				t_tokl;
-
+*/
 enum	e_tok
 {
 	CMD,
@@ -75,22 +75,24 @@ enum	e_tok
 	PIPE,
 	SEMIC, /* point virgule*/
 	AND, /* " && " */
-	OR /* " || "*/
+	OR, /* " || "*/
+	VOID
 };
 
-void		sig_handle(void);
-void		prompt(char *str); /*Affiche le prompt avec str devant si str non NULL */
-int			get_next_line(int const fd, char **line);
+//void		sig_handle(void);
+//void		prompt(char *str); /*Affiche le prompt avec str devant si str non NULL */
+//int			get_next_line(int const fd, char **line);
 
 t_lex		*lexer(char *str); /*Le lexer...renvoi NULL si erreur*/
-t_for		*parser(t_lex *lst); /* Liste d arbre */
+//t_for		*parser(t_lex *lst); /* Liste d arbre */
 
-int			parse_syn(t_lex *lst); /* verification syntaxique */
-t_tokl		*parse_tok(t_lex *lst); /* cree une list de token */
-t_tree		*parse_tree(t_lex *lst); /* cree la structure commande en meme tps que l'arbre */
-t_for		*add_tree(t_tree *wood, t_for *lst);
+//int			parse_syn(t_lex *lst); /* verification syntaxique */
+//t_for		*pars_for(t_takl *lst);
+//t_tokl		*parse_tok(t_lex *lst); /* cree une list de token */
+//t_tree		*parse_tree(t_lex *lst, t_cmd *prv, int prv_pipe); /* cree la structure commande en meme tps que l'arbre */
+//t_for		*add_tree(t_tree *wood, t_for *lst);
 
-void		tree_walker(t_tree *wood); /* Fonction de parcour d'arbre */
-int			node_run(t_cmd *data); /* Fontion d execution de noeud */
+//void		tree_walker(t_tree *wood, t_env *env); /* Fonction de parcour d'arbre */
+//int			node_run(t_cmd *data, t_env *env); /* Fontion d execution de noeud */
 
-#endif		/* !42SH_H */
+#endif		/* !FTSH_H */

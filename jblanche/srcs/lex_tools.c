@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "42sh.h"
 #include "lexer.h"
 
 t_lex			*init_lex(t_lex *lex)
 {
 	lex = (t_lex *)malloc(sizeof(t_lex));
-	lex->elem = NULL;
+	lex->elm = NULL;
 	lex->tok = 0;
 	lex->nxt = NULL;
+	return (lex);
 }
 
 t_lex			*add_lex(t_lex *lex, char *elm, int tok)
@@ -29,8 +29,8 @@ t_lex			*add_lex(t_lex *lex, char *elm, int tok)
 	tmp = lex;
 	while (tmp->nxt)
 		tmp = tmp->nxt;
-	new_node = init_lex(t_lex *lex);
-	ft_strdup(new_node->elm, elm);
+	new_node = init_lex(lex);
+	new_node->elm = ft_strdup(elm);
 	new_node->tok = tok;
 	tmp->nxt = new_node;
 	return (lex);

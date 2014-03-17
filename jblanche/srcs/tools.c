@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "lexer.h"
 
 static int		ft_is_blank(char c)
 {
@@ -22,11 +22,14 @@ static char		*del_spaces(char *str, int i)
 	int			j;
 
 	i++;
-	j = i;
 	while (str[i] && str[i] == ' ')
 	{
-		while (str[i])
-			str[i] = str[i + 1];
+		j = i;
+		while (str[j])
+		{
+			str[j] = str[j + 1];
+			j++;
+		}
 	}
 	return (str);
 }
@@ -38,10 +41,11 @@ static char		*trim_inline(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == '	')
+		if (str[i] == '\t')
 			str[i] = ' ';
 		i++;
 	}
+	i = 0;
 	while (str[i])
 	{
 		if (str[i] == ' ' && str[i + 1] == ' ')
@@ -51,7 +55,7 @@ static char		*trim_inline(char *str)
 	return (str);
 }
 
-char			*ft_strtrim(char *s)
+char			*ft_strtrim_lex(char *s)
 {
 	char		*new_str;
 	size_t		i;
@@ -59,17 +63,12 @@ char			*ft_strtrim(char *s)
 
 	len = ft_strlen(s) - 1;
 	i = 0;
-	if (!s || !s[i])
+	if (!s || !s[0])
 		return (ft_strnew(1));
 	while (s[i] && ft_is_blank(s[i]))
 		i++;
 	while (len != i && ft_is_blank(s[len]))
 		len--;
-	if (!i && len == ft_strlen(s) - 1)
-	{
-		new_str = ft_strsub(s, 0, ft_strlen(s));
-		return (new_str);
-	}
 	new_str = ft_strsub(s, i, len - i + 1);
 	if (!new_str)
 		return (NULL);

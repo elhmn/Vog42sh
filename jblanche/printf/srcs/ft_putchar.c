@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/19 16:20:30 by jblanche          #+#    #+#             */
-/*   Updated: 2013/11/20 16:50:39 by jblanche         ###   ########.fr       */
+/*   Created: 2013/11/19 13:53:21 by jblanche          #+#    #+#             */
+/*   Updated: 2013/12/22 18:28:28 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include <unistd.h>
 
-char	*ft_strchr(char *s, int c)
+int		ft_putchar(char c)
 {
-	char	ch;
-	int		loc;
-
-	loc = 0;
-	ch = c;
-	while (s[loc] != ch)
-	{
-		if (!s[loc])
-			return (NULL);
-		loc++;
-	}
-	return ((char *) (s + loc));
+	write(1, &c, 1);
+	return (1);
 }
-

@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_convert_oct.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/19 16:20:30 by jblanche          #+#    #+#             */
-/*   Updated: 2013/11/20 16:50:39 by jblanche         ###   ########.fr       */
+/*   Created: 2013/12/20 10:24:59 by jblanche          #+#    #+#             */
+/*   Updated: 2013/12/22 17:56:59 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "ft_printf.h"
 
-char	*ft_strchr(char *s, int c)
+int		ft_convert_oct(unsigned int nb)
 {
-	char	ch;
-	int		loc;
+	int		res[20];
+	int		i;
+	int		ret;
 
-	loc = 0;
-	ch = c;
-	while (s[loc] != ch)
+	i = 0;
+	ret = 0;
+	if (nb == 0)
+		ret = 1;
+	while (nb != 0)
 	{
-		if (!s[loc])
-			return (NULL);
-		loc++;
+		res[i++] = nb % 8;
+		nb = nb / 8;
 	}
-	return ((char *) (s + loc));
+	while (--i >= 0)
+		ret += ft_putnbr(res[i]);
+	return (ret);
 }
-
