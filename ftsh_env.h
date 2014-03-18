@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/12 14:15:29 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/17 13:04:19 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct	s_varenv
 {
 	char				*var;
 	char				*val;
-	struct s_varenv		*nxt
+	struct s_varenv		*nxt;
 }				t_venv;
 
 /*
@@ -48,6 +48,8 @@ typedef struct	s_path
 ** *path pointe vers le premier maillon de t_path
 ** **env est la liste chainé t_venv convertie en char** avant chq node_run
 ** last_ret contient la valeur de retour de la derniere execution (initialisé à 0 au lancement du shell)
+** homedir est charge au demarrage du shell et permet a ft_cd de rejoindre la home dir si l'utilisateur
+** balance un "cd"
 */
 
 typedef struct	s_env
@@ -55,6 +57,7 @@ typedef struct	s_env
 	struct s_varenv		*var;
 	struct s_path		*path;
 	char				**env;
+	char				*homedir;
 	int					last_ret;
 }				t_env;
 

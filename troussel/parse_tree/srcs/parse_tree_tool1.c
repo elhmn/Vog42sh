@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/03 14:17:09 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/12 13:03:52 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/13 15:17:24 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ftsh.h"
@@ -45,7 +45,7 @@ static int	count_arg(t_lex *tok)
 
 	i = 0;
 	tmp = tok;
-	while (tmp->tok == ARG)
+	while (tmp && tmp->tok == ARG)
 	{
 		++i;
 		tmp = tmp->nxt;

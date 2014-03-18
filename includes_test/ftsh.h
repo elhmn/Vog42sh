@@ -6,21 +6,13 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 15:41:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/11 17:06:30 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/14 12:18:47 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef		FTSH_H
 # define	FTSH_H
-
-/*
-typedef struct	s_env
-{
-	char			*var;
-	char			*val;
-	struct s_env	*nxt;
-}				t_env;
-*/
+# include	"ftsh_env.h"
 
 typedef struct	s_lex
 {
@@ -92,7 +84,7 @@ t_for		*parse_for(t_tokl *lst);
 t_tree		*parse_tree(t_lex *lst, t_cmd *prv, int flg_pipe); /* cree la structure commande en meme tps que l'arbre */
 t_for		*add_tree(t_tree *wood, t_for *lst);
 
-void		tree_walker(t_tree *wood); /* Fonction de parcour d'arbre */
-int			node_run(t_cmd *data); /* Fontion d execution de noeud */
+void		tree_walker(t_tree *wood, t_env *env); /* Fonction de parcour d'arbre */
+int			node_run(t_cmd *data, t_env *env); /* Fontion d execution de noeud */
 
 #endif		/* !FTSH_H */
