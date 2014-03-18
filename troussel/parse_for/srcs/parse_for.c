@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 13:20:20 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/13 16:08:08 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/18 16:10:21 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,31 +41,6 @@ t_for			*add_tree(t_tree *wood, t_for *lst)
 	return (lst);
 }
 
-static t_lex	*free_lex(t_lex *lst)
-{
-	char	*str;
-
-	if (lst->nxt)
-		lst->nxt = free_lex(lst->nxt);
-	str = lst->elm;
-	free(str);
-	str = NULL;
-	lst->elm = NULL;
-	free(lst);
-	lst = NULL;
-	return (NULL);
-}
-
-static t_tokl	*free_tokl(t_tokl *lst)
-{
-	if (lst->nxt)
-		lst->nxt = free_tokl(lst->nxt);
-	lst->lst = free_lex(lst->lst);
-	free(lst);
-	lst = NULL;
-	return (NULL);
-}
-
 t_for			*parse_for(t_tokl *lst)
 {
 	t_tokl	*tmp;
@@ -83,6 +58,5 @@ t_for			*parse_for(t_tokl *lst)
 			return (NULL);
 		tmp = tmp->nxt;
 	}
-	lst = free_tokl(lst);
 	return (forest);
 }

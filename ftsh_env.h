@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/17 13:04:19 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/18 15:56:42 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,8 @@ t_venv	*add_venv(char *var, char *val, t_venv *lst);
 t_venv	*pop_venv(char *var, t_venv *lst);
 t_venv	*mod_venv(char *var, char *val, t_venv *lst);
 
-char	**conv_env(t_venv *lst);
-char	**free_env(char **env);
-
 t_path	*add_path(char *dir, t_path *lst);
 
 t_env	init_env(t_venv *lst_venv, t_path *lst_path);
-
-int		isbuiltin(t_cmd *dat);/*renvoie 1 si dat->prg est un builtin, 0 sinon*/
-int		builtin(t_cmd *dat, t_env *env);/*execute le builtin approprié et renvoi le return de ce dernier*/
 
 #endif		/* !FTSH_ENV_H */
