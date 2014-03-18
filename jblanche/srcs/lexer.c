@@ -6,7 +6,7 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 17:48:45 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/18 14:29:53 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/18 14:40:58 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ static t_lex		*fill_lex(t_lex *lex, char **line)
 			lex = add_lex(lex, line[i++], tok);
 			if (line[i] && !is_spec(line[i]))
 				lex = add_lex(lex, line[i++], FIL);
-			i++;
 		}
 		else if (whoami(line[i], &tok) == 2)
 		{
