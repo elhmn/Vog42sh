@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 04:58:39 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/12/29 14:08:38 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/18 14:50:17 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ char			*ft_strtrim_lex(char *s)
 		i++;
 	while (len != i && ft_is_blank(s[len]))
 		len--;
-	new_str = ft_strsub(s, i, len - i + 1);
-	if (!new_str)
+	if (!(new_str = ft_strsub(s, i, len - i + 1)))
 		return (NULL);
-	new_str = trim_inline(new_str);
+	if (!(new_str = trim_inline(new_str)))
+		return (NULL);
 	return (new_str);
 }
