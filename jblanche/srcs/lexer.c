@@ -46,7 +46,7 @@ static int			whoami(char *line, int *tok)
 	if (line[0] == '-')
 	{
 		*tok = ARG;
-		return (1);
+		return (2);
 	}
 	else if (ft_strchr(line, '>'))
 	{
@@ -66,6 +66,11 @@ static int			whoami(char *line, int *tok)
 	return (whoami_aux(line, tok));
 }
 
+static t_lex		*get_arg(t_lex *lex, char **line, int *i)
+{
+	while (line[i][0] != '-' || str[i] != ...);
+}
+
 static t_lex		*fill_lex(t_lex *lex, char **line)
 {
 	int				i;
@@ -82,6 +87,8 @@ static t_lex		*fill_lex(t_lex *lex, char **line)
 			lex = add_lex(lex, line[i++], tok);
 			lex = add_lex(lex, line[i], FIL);
 		}
+		else if (whoami(line[i], &tok) == 2)
+			lex = get_arg(lex, line, &i);
 		else
 			lex = add_lex(lex, line[i], tok);
 		i++;
