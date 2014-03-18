@@ -6,7 +6,7 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 17:48:45 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/03 13:36:57 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/18 13:42:46 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,13 @@ static int			whoami_aux(char *line, int *tok)
 	else
 	{
 		*tok = CMD;
-		return (1);
+		return (2);
 	}
 }
 
 static int			whoami(char *line, int *tok)
 {
-	if (line[0] == '-')
-	{
-		*tok = ARG;
-		return (2);
-	}
-	else if (ft_strchr(line, '>'))
+	if (ft_strchr(line, '>'))
 	{
 		*tok = OUT;
 		return (0);
@@ -66,32 +61,54 @@ static int			whoami(char *line, int *tok)
 	return (whoami_aux(line, tok));
 }
 
-static t_lex		*get_arg(t_lex *lex, char **line, int *i)
+static t_lex		*get_arg(t_lex *lex, char **str, int *i)
 {
-	while (line[i][0] != '-' || str[i] != ...);
+	char			*arg;
+
+	lex = add_lex(lex, str[*i], CMD);
+	*i = *i + 1;
+	if (str[*i] && !is_spec(str[*i]))
+	{
+		arg = ft_strdup(str[*i]);
+		*i = *i + 1;
+		while (str[*i] && !is_spec(str[*i]))
+		{
+			arg = ft_strjoin(arg, " ");
+			arg = ft_strjoin(arg, str[*i]);
+			*i = *i + 1;
+			if (!str[*i])
+				break ;
+		}
+	}
+	else
+		return (lex);
+	return (lex = add_lex(lex, arg, ARG));
 }
 
 static t_lex		*fill_lex(t_lex *lex, char **line)
 {
 	int				i;
 	int				tok;
-	t_lex			*tmp;
 
 	tok = 0;
 	i = 0;
-	tmp = lex;
 	while (line[i])
 	{
 		if (!whoami(line[i], &tok))
 		{
 			lex = add_lex(lex, line[i++], tok);
-			lex = add_lex(lex, line[i], FIL);
+			while (line[i] && !is_spec(line[i]))
+				lex = add_lex(lex, line[i++], FIL);
+			i++;
 		}
 		else if (whoami(line[i], &tok) == 2)
+		{
 			lex = get_arg(lex, line, &i);
+			if (!line[i])
+				break ;
+		}
 		else
-			lex = add_lex(lex, line[i], tok);
-		i++;
+			lex = add_lex(lex, line[i++], tok);
 	}
 	lex = add_lex(lex, NULL, VOID);
 	return (lex);
