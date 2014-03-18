@@ -6,7 +6,7 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 17:48:45 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/18 14:27:13 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/18 14:29:53 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,11 +129,4 @@ t_lex				*lexer(char *str)
 	lex = fill_lex(lex, line);
 	print_lex(lex);
 	return (lex);
-}
-
-int					main(int ac, char **av)
-{
-	if (ac > 0)
-		lexer(av[1]);
-	return (0);
 }
