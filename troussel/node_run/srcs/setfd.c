@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 16:56:28 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/12 14:21:27 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/14 12:45:15 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ftsh.h"
@@ -26,10 +26,12 @@ static int		openfile(char *file, int in, int appmode)
 					 | S_IRUSR | S_IRGRP));
 	else if (in)
 		return (open(file, O_RDONLY));
+	return (0);
 }
 
 int				setpipe(t_cmd *dat, int pip[1][2][2], int swtch)
 {
+	(void)dat;
 	if (pipe(pip[0][swtch]) == -1)
 	{
 		error(0, "pipe error", 0);
@@ -41,9 +43,9 @@ int				setpipe(t_cmd *dat, int pip[1][2][2], int swtch)
 
 int				setfdfil(t_cmd *dat, int pip[1][2][2], int swtch)
 {
-	int	error;
+	int	err;
 
-	error = 0;
+	err = 0;
 	if (dat->ifile)
 	{
 		if (dat->pipe_r)
@@ -51,18 +53,18 @@ int				setfdfil(t_cmd *dat, int pip[1][2][2], int swtch)
 		if ((pip[0][!swtch][0] = openfile(dat->ifile, 1, 0)) == -1)
 		{
 			error(UNDEF, dat->ifile, 0);
-			++error;
+			++err;
 		}
 	}
 	if (dat->ofile)
 	{
 		if (dat->pipe_w)
 			close(pip[0][swtch][1]);
-		if ((pip[0][swtch][1] = openfile(dat->ofile, 0, dat->fld_app)) == -1)
+		if ((pip[0][swtch][1] = openfile(dat->ofile, 0, dat->flg_app)) == -1)
 		{
 			error(UNDEF, dat->ofile, 0);
-			++error;
+			++err;
 		}
 	}
-	return (error);
+	return (err);
 }

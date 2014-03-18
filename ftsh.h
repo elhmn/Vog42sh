@@ -6,21 +6,13 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/11 15:53:36 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/14 12:18:18 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef		FTSH_H
 # define	FTSH_H
-
-/*
-typedef struct	s_env
-{
-	char			*var;
-	char			*val;
-	struct s_env	*nxt;
-}				t_env;
-*/
+# include	"ftsh_env.h"
 
 typedef struct	s_lex
 {

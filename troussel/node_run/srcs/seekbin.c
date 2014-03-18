@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/12 16:54:09 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/12 17:11:24 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/14 13:36:49 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	chk_xperm(char *str, int free_flg)
 	}
 	if (free_flg)
 		ft_strdel(&str);
-	return(1)
+	return (1);
 }
 
 int			seekbin(t_cmd *dat, t_path *lst)
