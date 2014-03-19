@@ -63,26 +63,14 @@ static int			whoami(char *line, int *tok)
 
 static t_lex		*get_arg(t_lex *lex, char **str, int *i)
 {
-	char			*arg;
-
 	lex = add_lex(lex, str[*i], CMD);
 	*i = *i + 1;
-	if (str[*i] && !is_spec(str[*i]))
+	while (str[*i] && !is_spec(str[*i]))
 	{
-		arg = ft_strdup(str[*i]);
+		lex = add_lex(lex, str[*i], ARG);
 		*i = *i + 1;
-		while (str[*i] && !is_spec(str[*i]))
-		{
-			arg = ft_strjoin(arg, " ");
-			arg = ft_strjoin(arg, str[*i]);
-			*i = *i + 1;
-			if (!str[*i])
-				break ;
-		}
 	}
-	else
-		return (lex);
-	return (lex = add_lex(lex, arg, ARG));
+	return (lex);
 }
 
 static t_lex		*fill_lex(t_lex *lex, char **line)

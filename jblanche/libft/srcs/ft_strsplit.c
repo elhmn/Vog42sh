@@ -12,12 +12,11 @@
 
 #include "includes/libft.h"
 
-static void		ft_strsplit_init(int *i, int *j, int *count, char const **s)
+static void		ft_strsplit_init(int *i, int *j, int *count)
 {
 	*count = 0;
 	*i = 0;
 	*j = 0;
-	*s = ft_strtrim(*s);
 }
 
 char			**ft_strsplit(char const *s, char c)
@@ -27,7 +26,8 @@ char			**ft_strsplit(char const *s, char c)
 	int		j;
 	char	**ret;
 
-	ft_strsplit_init(&i, &j, &count, &s);
+	ft_putendl(s);
+	ft_strsplit_init(&i, &j, &count);
 	while (s[i++])
 	{
 		if (s[i] == c)
