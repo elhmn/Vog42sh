@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unsetenv.c                                      :+:      :+:    :+:   */
+/*   env_tools.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,27 +12,12 @@
 
 #include "lexer.h"
 
-int				ft_unsetenv(t_cmd *dat, t_env *env)
+t_venv				*find_env_var(t_venv *env, char *var)
 {
-	t_venv		*tmp;
-	t_venv		*bak;
+	t_venv			*tmp;
 
-	if (!env || !env->path || !env->var || !env->env || !env->homedir)
-		return (1);
-	tmp = env->var;
-	while (tmp && ft_strcmp(tmp->var, dat->arg[0]))
-	{
-		bak = tmp;
+	tmp = env;
+	while (tmp && ft_strcmp(tmp->var))
 		tmp = tmp->nxt;
-	}
-	if (!tmp)
-		return (2);
-	else
-	{
-		bak->nxt = tmp->nxt;
-		free(tmp->var);
-		free(tmp->val);
-		tmp = NULL;
-	}
-	return (0);
+	return (tmp);
 }
