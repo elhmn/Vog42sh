@@ -6,10 +6,11 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/21 14:16:44 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/21 15:34:12 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/21 17:17:00 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "tools.h"
 #include <unistd.h>
 #include <stdlib.h>
 
@@ -83,11 +84,38 @@ char	**get_opt(char *arg, char *opt, char *str)
 	return (NULL);
 }
 
-int		checksyn(char *opt)
+int		checksyn(char **opt, char **str, int *flag)
 {
-	while (opt && *opt && *opt != 'n' && *opt != 'e' && *opt != 'E')
-		opt++;
-	if (!opt)
-		return (1);
-	return (0);
+	char	*tmp1;
+	char	*tmp2;
+	char	*opt_tmp;
+
+	opt_tmp = *opt;
+	tmp1 = NULL;
+	tmp2 = NULL;
+	while (opt_tmp && *opt_tmp && *opt_tmp != 'n'
+			&& *opt_tmp != 'e' && *opt_tmp != 'E')
+		opt_tmp++;
+	if (!opt_tmp) //strjoin "-opt" && "str"
+	{
+		tmp1 = ft_strjoin(opt_tmp, "-");
+		tmp2 = ft_strjoin(tmp1, *str);
+		free(*str);
+		*str = tmp2;
+		free(tmp1);
+		free(opt_tmp);
+		return (TRUE);
+	}
+	opt_tmp = *opt;
+	while (*opt_tmp && opt - opt_tmp < 3)
+	{
+		if (*opt_tmp == 'n')
+			flag += 1;
+		else if (*opt_tmp == 'e')
+			flag += 2;
+		else if (*opt_tmp == 'E')
+			flag += 3;
+		opt_tmp++;
+	}
+	return (TRUE);
 }

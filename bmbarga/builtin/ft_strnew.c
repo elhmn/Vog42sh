@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   echo.c                                             :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/21 14:04:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/21 15:57:17 by bmbarga          ###   ########.fr       */
+/*   Created: 2013/11/21 02:31:24 by jblanche          #+#    #+#             */
+/*   Updated: 2014/03/21 16:05:33 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftsh_env.h"
 #include "tools.h"
+#include <stdlib.h>
 
-extern char	**environ;
-
-int		ft_echo(t_cmd, t_env *env);
+char	*ft_strnew(size_t size)
 {
-	
-	return (0);
+	char	*str;
+	size_t	i;
+
+	i = 0;
+	str = (char*) malloc(sizeof (char) * (size + 1));
+	if (!str)
+		return (NULL);
+	while (i <= size)
+	{
+		str[i] = '\0';
+		i++;
+	}
+	return (str);
 }

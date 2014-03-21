@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   echo.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/21 14:04:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/21 15:57:17 by bmbarga          ###   ########.fr       */
+/*   Created: 2013/09/16 14:21:58 by jblanche          #+#    #+#             */
+/*   Updated: 2013/12/27 16:59:21 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftsh_env.h"
-#include "tools.h"
+#include "includes/libft.h"
 
-extern char	**environ;
-
-int		ft_echo(t_cmd, t_env *env);
+char	*ft_strcpy(char *s1, const char *s2)
 {
-	
-	return (0);
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if (!s2)
+		return (NULL);
+	while (s2[i])
+		s1[j++] = s2[i++];
+	s1[j] = '\0';
+	return (s1);
 }
