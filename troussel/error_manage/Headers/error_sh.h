@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/25 13:46:37 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/07 13:01:51 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/22 15:24:44 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef		ERRORSH_H
@@ -19,7 +19,8 @@
 # define	PERM	4
 # define	SYN		5
 # define	NSFOD	6
-# define	UNDEF	7
+# define	UNKOP	7
+# define	UNDEF	8
 
 void	puterror(char const *s);
 void	error(int code, char *str, int esc_seq);

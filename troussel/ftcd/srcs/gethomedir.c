@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/18 15:56:42 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/22 15:01:13 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@ char	*gethomedir(t_env *env)
 {
 	t_venv		*tmp;
 
-	if (!env->homedir && !env->var)
-	{
-		error(0, "Empty environment", 0);
-		return (NULL);
-	}
-	else if (env->homedir)
-		return (ft_strdup(env->homedir));
 	tmp = env->var;
 	while (tmp && !ft_strcmp("HOME", tmp->var))
 		tmp = tmp->nxt;

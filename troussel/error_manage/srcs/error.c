@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/25 13:52:07 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/07 16:31:07 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/22 15:25:21 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "error_sh.h"
@@ -25,6 +25,8 @@ static void	code_seq(int code)
 		puterror("syntax error near unexpected token ");
 	else if (code == NSFOD)
 		puterror("No such file or directory\n");
+	else if (code == UNKOP)
+		puterror("Unknown option\n");
 	else if (code >= UNDEF)
 		puterror("Undefined error\n");
 }
