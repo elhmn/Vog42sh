@@ -23,8 +23,4 @@ t_lex		*treat_pipe(int *pipe_w, t_lex *tok);
 t_cmd		*add_cmdd(t_cmd *lst);
 t_tree		*add_leaf(t_cmd *elm);
 
-char		*ft_strdup(const char *s1);
-int			ft_strlen(const char *s);
-void		ft_strdel(char **as);
-
 #endif		/* !PARSETREE_H */

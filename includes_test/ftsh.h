@@ -87,4 +87,6 @@ t_for		*add_tree(t_tree *wood, t_for *lst);
 void		tree_walker(t_tree *wood, t_env *env); /* Fonction de parcour d'arbre */
 int			node_run(t_cmd *data, t_env *env); /* Fontion d execution de noeud */
 
+t_cmd		*free_cmd(t_cmd *cmd);
+
 #endif		/* !FTSH_H */

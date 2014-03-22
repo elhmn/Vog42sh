@@ -26,7 +26,7 @@ t_for			*add_tree(t_tree *wood, t_for *lst)
 	t_for	*tmp;
 	t_for	*new;
 
-	if (!(new = (t_for*)malloc(sizeof(t_for))))
+	if (!(new = (t_for*)malloc(sizeof(t_for) * 1)))
 	{
 		error(0, "Out of memory", 0);
 		return (NULL);

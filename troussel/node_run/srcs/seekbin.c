@@ -34,6 +34,8 @@ int			seekbin(t_cmd *dat, t_path *lst)
 	char	*bin_path;
 	t_path	*tmp;
 
+	if (!dat->prg)
+		return (0);
 	if (access(dat->prg, F_OK) == 0)
 		return (chk_xperm(dat->prg, 0));
 	tmp = lst;

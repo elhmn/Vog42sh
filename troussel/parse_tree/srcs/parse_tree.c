@@ -12,9 +12,12 @@
 #include "ftsh.h"
 #include "parse_tree.h"
 #include "error_sh.h"
+#include "libft.h"
 
 static t_tree	*load_argo(t_tree *leaf)
 {
+	if (!leaf->data->prg)
+		return (leaf);
 	if (!leaf->data->arg)
 	{
 		if (!(leaf->data->arg = (char**)malloc(sizeof(char*) * 2)))
@@ -24,7 +27,7 @@ static t_tree	*load_argo(t_tree *leaf)
 		}
 		leaf->data->arg[1] = 0;
 	}
-	leaf->data->arg[0] = leaf->data->prg;
+	leaf->data->arg[0] = ft_strdup(leaf->data->prg);
 	return (leaf);
 }
 
@@ -52,6 +55,18 @@ static t_tree	*parse_tree_aux(t_lex *lst, t_cmd *node, t_tree *leaf)
 	return (load_argo(leaf));
 }
 
+static t_lex	*inf_outf_frst(t_lex *lst, t_cmd *node)
+{
+	lst = treat_redir(&node, lst);
+	if (lst && lst->tok == CMD)
+		lst = treat_cmd(&node->prg, lst);
+	else if (!lst || lst->tok == PIPE || lst->tok == AND || lst->tok == OR)
+		return (lst);
+	else
+		error(0, "Parse error", 1);
+	return (lst);
+}
+
 t_tree			*parse_tree(t_lex *lst, t_cmd *prv, int flg_pipe)
 {
 	t_cmd	*node;
@@ -62,14 +77,8 @@ t_tree			*parse_tree(t_lex *lst, t_cmd *prv, int flg_pipe)
 	node->pipe_r = (flg_pipe ? 1 : 0);
 	if (!(leaf = add_leaf(node)))
 		return (NULL);
-	if (lst->tok == IN)
-	{
-		lst = treat_inf(&node->ifile, lst);
-		if (lst->tok == CMD)
-			lst = treat_cmd(&node->prg, lst);
-		else
-			error(0, "Parse error", 1);
-	}
+	if (lst->tok == IN || lst->tok == OUT || lst->tok == APP)
+		lst = inf_outf_frst(lst, node);
 	else if (lst->tok == CMD)
 		lst = treat_cmd(&node->prg, lst);
 	else

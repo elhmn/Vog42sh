@@ -23,6 +23,8 @@ static void	code_seq(int code)
 		puterror("Permission denied\n");
 	else if (code == SYN)
 		puterror("syntax error near unexpected token ");
+	else if (code == NSFOD)
+		puterror("No such file or directory\n");
 	else if (code >= UNDEF)
 		puterror("Undefined error\n");
 }

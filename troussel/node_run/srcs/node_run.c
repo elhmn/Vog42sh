@@ -30,7 +30,7 @@ static int		launch(t_cmd *dat, t_env *env, int pip[2][2], int swtch)
 	}
 	if (!dat->pipe_w && !dat->pipe_r && isbuiltin(dat))
 		env->last_ret = builtin(dat, env);
-	else
+	else if (dat->prg)
 	{
 		fk = fork();
 		if (!fk)
@@ -66,7 +66,7 @@ int				node_run(t_cmd *dat, t_env *env)
 		if (setfdfil(dat, &pip, swtch))
 			return ((env->last_ret = 1));
 	}
-	if (isbuiltin(dat) || seekbin(dat, env->path))
+	if (isbuiltin(dat) || seekbin(dat, env->path) || !dat->prg)
 		return (launch(dat, env, pip, swtch));
 	else
 	{

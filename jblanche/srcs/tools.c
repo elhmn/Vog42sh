@@ -69,9 +69,10 @@ char			*ft_strtrim_lex(char *s)
 		i++;
 	while (len != i && ft_is_blank(s[len]))
 		len--;
-	if (!(new_str = ft_strsub(s, i, len - i + 1)))
+	if (len == (ft_strlen(s) - 1) && !i)
+		return (s);
+	else if (!(new_str = ft_strsub(s, i, len - i + 1)))
 		return (NULL);
-	if (!(new_str = trim_inline(new_str)))
-		return (NULL);
+	new_str = trim_inline(new_str);
 	return (new_str);
 }

@@ -12,6 +12,7 @@
 #include "ftsh.h"
 #include "parse_tree.h"
 #include "error_sh.h"
+#include "libft.h"
 
 t_lex		*treat_outf(char **ofile, int *flg_app, t_lex *tok)
 {

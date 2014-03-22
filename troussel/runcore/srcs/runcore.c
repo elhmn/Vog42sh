@@ -3,8 +3,6 @@
 #include "runcore.h"
 #include <stdlib.h>
 
-#include <stdio.h>/**************/
-
 static t_lex	*free_lex(t_lex *lst)
 {
 	char	*str;
@@ -33,10 +31,9 @@ static t_tokl	*free_tokl(t_tokl *lst)
 	return (NULL);
 }
 
-static t_for	*parse_it(t_lex *lex_tree)
+static t_for	*parse_it(t_lex *lex_tree, t_for *for_tree)
 {
 	t_tokl		*tokl_tree;
-	t_for		*for_tree;
 
 	if (!parse_syn(lex_tree))
 		return (NULL);
@@ -52,8 +49,9 @@ t_env			*runcore(const char *input, t_env *env)
 	t_for		*for_tree;
 	t_for		*for_walker;
 
+	for_tree = NULL;
 	lex_tree = lexer((char*)input);
-	for_tree = parse_it(lex_tree);
+	for_tree = parse_it(lex_tree, for_tree);
 	for_walker = for_tree;
 	while (for_walker)
 	{
