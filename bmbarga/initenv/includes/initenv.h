@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   initenv.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
+/*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/09/16 14:21:58 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/22 18:32:56 by bmbarga          ###   ########.fr       */
+/*   Created: 2014/03/22 12:51:57 by troussel          #+#    #+#             */
+/*   Updated: 2014/03/22 14:10:07 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *s1, const char *s2)
-{
-	int	i;
-	int	j;
+#ifndef		INITENV_H
+# define	INITENV_H
+# include	"ftsh_env.h"
 
-	i = 0;
-	j = 0;
-	if (!s2)
-		return (NULL);
-	while (s2[i])
-		s1[j++] = s2[i++];
-	s1[j] = '\0';
-	return (s1);
-}
+t_venv	*add_venv(char *var, t_venv *lst);
+t_path	*compute_path(t_venv *pathvar, t_path *lst);
+
+#endif		/* !INITENV_H */

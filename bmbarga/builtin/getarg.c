@@ -6,11 +6,14 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/22 14:08:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/22 17:37:38 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/22 21:20:36 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tools.h"
+#include "libft.h"
+#include "error_sh.h"
+#include "ftsh_env.h"
 
 static char		*cpy_opt(char *arg, char **opt)
 {
@@ -29,9 +32,8 @@ static char		*cpy_opt(char *arg, char **opt)
 		arg++;
 		len++;
 	}
-	*opt = (char*)malloc(sizeof(char) * (len + 1));
-	if (!opt)
-		return (NULL);
+	if (!(*opt = (char*)malloc(sizeof(char) * (len + 1))))
+		error(0, "Out of memory", 1);
 	opt_tmp = *opt;
 	while (*tmp && *tmp != '\t' && *tmp != ' ')
 		*opt_tmp++ = *tmp++;
@@ -43,32 +45,28 @@ static char		*cpy_arg(char *arg)
 {
 	char	*str;
 	int		len;
-	int 	tmp;
+	char 	*tmp;
 
 	len = ft_strlen(arg);
-	str = (char*)malloc(sizeof(char) * (len + 1));
+	if (!(str = (char*)malloc(sizeof(char) * (len + 1))))
+		error(0, "Out of memory", 1);
 	tmp = str;
-	if (!tmp)
-		return (NULL);
 	while (*arg)
-		*tmp++ = arg++;
+		*tmp++ = *arg++;
 	return (str);
 }
 
-char	**get_arg(char *arg, char *opt, char *str)
+char	*get_arg(char *arg, char **opt)
 {
 	char	*tmp;
-	int		len;
 
-	len = 0;
 	if (arg)
 	{
-		if (!(arg = cpy_opt(arg, &opt)))
+		if (!(arg = cpy_opt(arg, opt)))
 			return (NULL);
-		if (!(*str = cpy_arg(arg)))
-			retutn (NULL);
+		tmp = cpy_arg(arg);
 	}
-	return (NULL);
+	return (tmp);
 }
 
 static int		getflag(int *flag, char *opt)
@@ -94,7 +92,7 @@ int		checksyn(char **opt, char **str, int *flag)
 	char	*tmp1;
 	char	*tmp2;
 
-		if (getflag(flag, opt) == FALSE) //strjoin "-opt" && "str"
+	if (getflag(flag, *opt) == FALSE) //strjoin "-opt" && "str"
 	{
 		tmp1 = ft_strjoin(*opt, "-");
 		tmp2 = ft_strjoin(tmp1, *str);

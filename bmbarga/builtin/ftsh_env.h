@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/18 15:56:42 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/22 19:07:18 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,14 @@ typedef struct	s_env
 	int					last_ret;
 }				t_env;
 
+/*
 t_venv	*add_venv(char *var, char *val, t_venv *lst);
 t_venv	*pop_venv(char *var, t_venv *lst);
 t_venv	*mod_venv(char *var, char *val, t_venv *lst);
 
 t_path	*add_path(char *dir, t_path *lst);
 
-t_env	init_env(t_venv *lst_venv, t_path *lst_path);
+t_env	*initenv(t_venv *lst_venv, t_path *lst_path);
+*/
 
 #endif		/* !FTSH_ENV_H */

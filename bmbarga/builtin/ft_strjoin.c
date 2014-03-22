@@ -6,13 +6,12 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 04:42:54 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/21 16:05:48 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/22 18:35:18 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tools.h"
 #include <stdlib.h>
-#include <string.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
