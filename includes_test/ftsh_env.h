@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/18 15:56:42 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/22 12:48:47 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 typedef struct	s_varenv
 {
-	char				*var;
-	char				*val;
-	struct s_varenv		*nxt;
+	char			*var;
+	char			*val;
+	struct s_varenv	*nxt;
 }				t_venv;
 
 /*
@@ -34,8 +34,8 @@ typedef struct	s_varenv
 
 typedef struct	s_path
 {
-	char				*dir;
-	struct s_path		*nxt;
+	char			*dir;
+	struct s_path	*nxt;
 }				t_path;
 
 /*
@@ -54,11 +54,10 @@ typedef struct	s_path
 
 typedef struct	s_env
 {
-	struct s_varenv		*var;
-	struct s_path		*path;
-	char				**env;
-	char				*homedir;
-	int					last_ret;
+	struct s_varenv	*var;
+	struct s_path	*path;
+	char			**env;
+	int				last_ret;
 }				t_env;
 
 t_venv	*add_venv(char *var, char *val, t_venv *lst);
