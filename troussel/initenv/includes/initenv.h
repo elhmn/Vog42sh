@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_sh.h                                         :+:      :+:    :+:   */
+/*   initenv.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/25 13:46:37 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/07 13:01:51 by bmbarga          ###   ########.fr       */
+/*   Created: 2014/03/22 12:51:57 by troussel          #+#    #+#             */
+/*   Updated: 2014/03/22 14:10:07 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef		ERRORSH_H
-# define	ERRORSH_H
-# include	<stdlib.h>
 
-# define	CMDNF	1
-# define	ARG_M	2
-# define	ARG_F	3
-# define	PERM	4
-# define	SYN		5
-# define	NSFOD	6
-# define	UNDEF	7
+#ifndef		INITENV_H
+# define	INITENV_H
+# include	"ftsh_env.h"
 
-void	puterror(char const *s);
-void	error(int code, char *str, int esc_seq);
+t_venv	*add_venv(char *var, t_venv *lst);
+t_path	*compute_path(t_venv *pathvar, t_path *lst);
 
-#endif		/* !ERRORSH_H */
+#endif		/* !INITENV_H */
