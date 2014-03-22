@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/21 14:16:44 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/21 17:17:00 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/22 16:18:10 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void	ft_putstr(char *str)
+void		ft_putstr(char *str)
 {
 	if (str)
 		while (*str)
@@ -26,96 +26,38 @@ void		ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-
-static char		*cpy_opt(char *arg, char **opt)
-{
-	int		len;
-	char	*tmp;
-	char	*opt_tmp;
-
-	len = 0;
-	while (*arg && *arg != '-')
-		arg++;
-	if (!*arg)
-		return (NULL);
-	tmp = arg;
-	while (*arg && *arg != '\t' && *arg != ' ')
-	{
-		arg++;
-		len++;
-	}
-	*opt = (char*)malloc(sizeof(char) * (len + 1));
-	if (!opt)
-		return (NULL);
-	opt_tmp = *opt;
-	while (*tmp && *tmp != '\t' && *tmp != ' ')
-		*opt_tmp++ = *tmp++;
-	*opt_tmp = '\0';
-	return (tmp);
-}
-
-static char		*cpy_arg(char *arg)
-{
-	char	*str;
-	int		len;
-
-	len = ft_strlen(arg);
-	str = (char*)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	while (*arg)
-		*str++ = arg++;
-	return (str);
-}
-
-char	**get_opt(char *arg, char *opt, char *str)
+static char	*put_env(char *str, t_venv *var)
 {
 	char	*tmp;
-	int		len;
+	int		ret;
 
-	len = 0;
-	if (arg)
+	ret = 200;
+	tmp = str + 1;
+	while (var->next
+			&& ret = ft_strncmp(tmp, var->var, ft_strlen(var->var)))
+		var = var->next;
+	if (!var->next)
+		ret = ft_strncmp(tmp, var->var, ft_strlen(var->var))
+	if (!ret)
 	{
-		if (!(arg = cpy_opt(arg, &opt)))
-			return (NULL);
-		if (!(*str = cpy_arg(arg)))
-			retutn (NULL);
+		ft_putstr(var->val);
+		return (str + ftstrlen(var->var));
 	}
-	return (NULL);
+	return (str); //if var_env doesn't exist
 }
 
-int		checksyn(char **opt, char **str, int *flag)
+void		echo_print(char *str, t_env *env, int *flag)
 {
-	char	*tmp1;
-	char	*tmp2;
-	char	*opt_tmp;
-
-	opt_tmp = *opt;
-	tmp1 = NULL;
-	tmp2 = NULL;
-	while (opt_tmp && *opt_tmp && *opt_tmp != 'n'
-			&& *opt_tmp != 'e' && *opt_tmp != 'E')
-		opt_tmp++;
-	if (!opt_tmp) //strjoin "-opt" && "str"
+	if (str)
 	{
-		tmp1 = ft_strjoin(opt_tmp, "-");
-		tmp2 = ft_strjoin(tmp1, *str);
-		free(*str);
-		*str = tmp2;
-		free(tmp1);
-		free(opt_tmp);
-		return (TRUE);
+		while (*str)
+		{
+			if (*str == '$')
+				str = put_env(str, env->var);
+			ft_putchar(*str);
+			str++;
+		}
+		if (flag[0] != '\n')
+			ft_putchar('\n');
 	}
-	opt_tmp = *opt;
-	while (*opt_tmp && opt - opt_tmp < 3)
-	{
-		if (*opt_tmp == 'n')
-			flag += 1;
-		else if (*opt_tmp == 'e')
-			flag += 2;
-		else if (*opt_tmp == 'E')
-			flag += 3;
-		opt_tmp++;
-	}
-	return (TRUE);
 }

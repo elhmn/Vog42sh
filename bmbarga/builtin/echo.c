@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/21 14:04:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/21 15:57:17 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/22 17:39:57 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,21 @@
 
 extern char	**environ;
 
-int		ft_echo(t_cmd, t_env *env);
+int		ft_echo(t_cmd cmd, t_env *env);
 {
-	
+	char *opt;
+	char *str;
+	int	flag[3]; = {0}
+
+	str = cpy_opt(cmd.arg, &opt);
+	if (!str) //if no flag
+		echo_print(arg, env, flag);
+	else
+	{
+		if (!(str = cpy_arg(str)))
+			return (0);
+		check_syn(&opt, &str, flag);
+		echo_print(str, env, flag);
+	}
 	return (0);
 }
