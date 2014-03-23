@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/22 14:08:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/23 15:08:55 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/23 15:20:09 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ static void set_flag(int *flag)
 	flag[0] = 0;
 	flag[1] = 0;
 	flag[2] = 0;
-	flag[3] = 1;
 }
 
 int		checksyn(char **opt, char **str, int *flag)

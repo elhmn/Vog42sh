@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/23 14:16:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/23 15:06:44 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/23 15:20:04 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		echo_print(char *str, t_env *env, int *flag)
 			ft_putchar(*str);
 			str++;
 		}
-		if (flag[0] != 'n' && !flag[3])
+		if (flag[0] != 'n')
 			ft_putchar('\n');
 	}
 }
