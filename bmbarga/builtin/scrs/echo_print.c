@@ -6,13 +6,13 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/23 14:16:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/23 14:16:44 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/23 15:06:44 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#include "tools.h"
+#include "echo.h"
 #include "ftsh_env.h"
 #include "ftsh.h"
 #include "libft.h"

@@ -6,12 +6,12 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/21 14:19:17 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/23 14:02:47 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/23 14:54:58 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "initenv.h"
-#include "tools.h"
+#include "echo.h"
 #include "libft.h"
 //#include <stdio.h> /***************/
 
