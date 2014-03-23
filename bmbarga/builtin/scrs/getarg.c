@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/22 14:08:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/22 21:20:36 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/23 14:11:52 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 #include "error_sh.h"
 #include "ftsh_env.h"
+//#include <stdio.h> /***************/
 
 static char		*cpy_opt(char *arg, char **opt)
 {
@@ -59,7 +60,8 @@ static char		*cpy_arg(char *arg)
 char	*get_arg(char *arg, char **opt)
 {
 	char	*tmp;
-
+	
+	tmp = NULL;
 	if (arg)
 	{
 		if (!(arg = cpy_opt(arg, opt)))
@@ -82,7 +84,9 @@ static int		getflag(int *flag, char *opt)
 			flag[2] = 'E';
 		opt++;
 	}
-	if (!flag[0] && !flag[1] && !flag[2])
+	if ((!flag[0] && !flag[1] && !flag[2])
+			|| (*opt != 'n' && *opt != 'e' 
+				&& *opt != 'E' && *opt))
 		return (FALSE);
 	return (TRUE);
 }
@@ -94,7 +98,9 @@ int		checksyn(char **opt, char **str, int *flag)
 
 	if (getflag(flag, *opt) == FALSE) //strjoin "-opt" && "str"
 	{
-		tmp1 = ft_strjoin(*opt, "-");
+		flag[3] = 1;
+//		printf("GET_FLAG == FALSE  ::-> opt = [%s] && str = [%s]\n", *opt, *str);
+		tmp1 = ft_strjoin("-", *opt);
 		tmp2 = ft_strjoin(tmp1, *str);
 		free(*str);
 		*str = tmp2;

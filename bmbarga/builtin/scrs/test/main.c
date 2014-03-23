@@ -6,13 +6,14 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/21 14:19:17 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/22 19:13:45 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/23 14:02:47 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "initenv.h"
 #include "tools.h"
 #include "libft.h"
+//#include <stdio.h> /***************/
 
 extern char		**environ;
 
@@ -32,9 +33,11 @@ int		main(int ac, char **av)
 		{
 			str = ft_strjoin(str, av[i]);
 			i++;
+//			printf("str[ %d ] =[%s]\n", i, str); /*******************/
 		}
 		ft_echo(str, env);
 	}
-	ft_putstr("To few argument\n");
+	else
+		ft_putstr("To few argument\n");
 	return (0);
 }

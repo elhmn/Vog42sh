@@ -1,1 +1,0 @@
-gcc -Wall -Werror -Wextra main.c initenv.c compute_path.c addvenv.c -L./ -lft error.c echo.c tools.c getarg.c ft_puterror.c

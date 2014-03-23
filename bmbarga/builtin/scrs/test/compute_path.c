@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/22 13:50:00 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/22 14:18:15 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/23 13:06:48 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_path			*compute_path(t_venv *pathvar, t_path *lst)
 	if (!pathvar->val)
 		return (NULL);
 	splt = ft_strsplit(pathvar->val, ':');
-	if (!splt[0])
+	if (!splt[0] || !splt)
 		return (NULL);
 	i = -1;
 	while (splt[++i])

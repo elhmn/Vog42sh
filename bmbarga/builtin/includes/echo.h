@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   echo.c                                             :+:      :+:    :+:   */
+/*   echo.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/21 14:04:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/22 20:57:56 by bmbarga          ###   ########.fr       */
+/*   Created: 2014/03/23 14:18:34 by bmbarga           #+#    #+#             */
+/*   Updated: 2014/03/23 14:19:09 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftsh_env.h"
-#include "tools.h"
+#ifndef ECHO_H
+# define ECHO_H
+# include "ftsh_env.h"
+# include "ftsh.h"
+# include <string.h>
+# define FALSE 1
+# define TRUE 0
 
+/*
+** getarg.c
+*/
 
-int		ft_echo(char *cmd, t_env *env) //change the type of the first arg in cmd
-{
-	char *opt;
-	char *str;
-	int	flag[3] = {0};
+void	echo_print(char *str, t_env *env, int *flag);
+int		ft_echo(char *str, t_env *env);
+int		checksyn(char **opt, char **str, int *flag);
+char	*get_arg(char *arg, char **opt);
 
-	if (!(str = get_arg(cmd, &opt)))
-		echo_print(cmd, env, flag);	
-	else
-		echo_print(str, env, flag);
-	return (0);
-}
+#endif /* !ECHO_H */
