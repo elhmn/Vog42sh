@@ -12,13 +12,14 @@
 
 #include "ftcd.h"
 #include "libft.h"
+#include "error_sh.h"
 
 char	*gethomedir(t_env *env)
 {
 	t_venv		*tmp;
 
 	tmp = env->var;
-	while (tmp && !ft_strcmp("HOME", tmp->var))
+	while (tmp && ft_strcmp("HOME", tmp->var))
 		tmp = tmp->nxt;
 	if (tmp && tmp->val)
 		return (ft_strdup(tmp->val));

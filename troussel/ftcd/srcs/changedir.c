@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftcd.c                                             :+:      :+:    :+:   */
+/*   changedir.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,23 +12,29 @@
 
 #include "ftcd.h"
 #include "error_sh.h"
+#include <unistd.h>
+#include <stdlib.h>
 
-int		ft_cd(t_cmd *dat, t_env *env)
+int				changedir(t_cmd *dat, char *target, t_env *env)
 {
-	char		*target;
-	int			ret;
+	char		*oldpwd;
+	size_t		size;
 
-	if (!dat->arg[1])
+	oldpwd = NULL;
+	size = pathconf(".", _PC_PATH_MAX);
+	if (chk_access(target))
+		return (3);
+	oldpwd = getcwd(oldpwd, size);
+	if (!chdir(target))
 	{
-		if (!(target = gethomedir(env)))
-			return (1);
+		env->var = updt_oldpwd(oldpwd, env);
+		env->var = updt_pwd(target, env);
+		if (dat->arg[1] && dat->arg[1][0] == '-')
+			show_change(env);
+		return (0);
 	}
-	else
-	{
-		if (!(target = getinput(dat, env)))
-			return (2);
-	}
-	ret = changedir(dat, target, env);
-	free(target);
-	return (ret);
+	if (oldpwd)
+		free(oldpwd);
+	error(UNDEF, "cd: dir change failed", 0);
+	return (4);
 }

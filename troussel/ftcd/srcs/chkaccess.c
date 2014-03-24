@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initenv.h                                          :+:      :+:    :+:   */
+/*   chkaccess.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/22 12:51:57 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/22 14:10:07 by troussel         ###   ########.fr       */
+/*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
+/*   Updated: 2014/03/22 16:42:07 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		INITENV_H
-# define	INITENV_H
-# include	"ftsh_env.h"
+#include "ftcd.h"
+#include "error_sh.h"
+#include <sys/stat.h>
 
-t_venv	*add_venv(char *var, t_venv *lst);
-t_path	*compute_path(t_venv *pathvar, t_path *lst);
+int		chk_access(char *target)
+{
+	struct stat	buf;
 
-#endif		/* !INITENV_H */
+	if (!stat(target, &buf))
+	{
+		if (S_ISDIR(buf.st_mode))
+			return (0);
+		error(0, "cd: target is not a valid directory", 0);
+		return (1);
+	}
+	error(NSFOD, target, 0);
+	return (1);
+}

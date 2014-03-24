@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 #include "ftsh_env.h"
+#include "error_sh.h"
+#include "libft.h"
+#include <stdlib.h>
 
 static char	*replace(char *target, char *home, char *arg, int sze)
 {
@@ -35,7 +38,7 @@ char		*tild_replace(char *target, char *arg, t_venv *var)
 	int		sze;
 
 	tmp = var;
-	while (tmp && ft_strcmp("HOME", var->var))
+	while (tmp && ft_strcmp("HOME", tmp->var))
 		tmp = tmp->nxt;
 	if (!tmp)
 	{

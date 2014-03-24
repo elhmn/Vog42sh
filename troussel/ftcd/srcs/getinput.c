@@ -14,17 +14,18 @@
 #include "error_sh.h"
 #include "libft.h"
 
-static char		*getoldpwd(char *target, t_venv *var)
+static char		*getoldpwd(t_venv *var)
 {
 	t_venv	*tmp;
 
 	tmp = var;
-	while (tmp && ft_strcmp("OLDPWD", var->var))
+	while (tmp && ft_strcmp("OLDPWD", tmp->var))
 		tmp = tmp->nxt;
 	if (!tmp)
 		error(0, "cd: OLDPWD is unset", 0);
 	else
-		return (ft_strdup(var->val));
+		return (ft_strdup(tmp->val));
+	return (NULL);
 }
 
 static char		*usage(char *str)
@@ -44,8 +45,8 @@ char			*getinput(t_cmd *dat, t_env *env)
 	if (dat->arg[1] && dat->arg[1][0] == '-' && dat->arg[1][1])
 		return (usage(dat->arg[1]));
 	else if (dat->arg[1] && dat->arg[1][0] == '-')
-		target = getoldpwd(target, env->var);
-	else if (dat->arg[1] && dat->arg[1][0] == '~' && dat->arg[1][1] = '/')
+		target = getoldpwd(env->var);
+	else if (dat->arg[1] && dat->arg[1][0] == '~' && dat->arg[1][1] == '/')
 		target = tild_replace(target, dat->arg[1], env->var);
 	else
 		target = ft_strdup(dat->arg[1]);
