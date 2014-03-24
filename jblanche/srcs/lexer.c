@@ -6,7 +6,7 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 17:48:45 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/18 14:50:32 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/24 12:35:48 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,5 @@ t_lex				*lexer(char *str)
 		return (NULL);
 	line = ft_strsplit(str, ' ');
 	lex = fill_lex(lex, line);
-	print_lex(lex);
 	return (lex);
 }

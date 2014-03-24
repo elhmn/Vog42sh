@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/22 16:42:07 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/24 13:10:11 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int				changedir(t_cmd *dat, char *target, t_env *env)
 	oldpwd = getcwd(oldpwd, size);
 	if (!chdir(target))
 	{
-		env->var = updt_oldpwd(oldpwd, env);
-		env->var = updt_pwd(target, env);
+		env = updt_oldpwd(oldpwd, env);
+		env = updt_pwd(target, env);
 		if (dat->arg[1] && dat->arg[1][0] == '-')
 			show_change(env);
 		return (0);
