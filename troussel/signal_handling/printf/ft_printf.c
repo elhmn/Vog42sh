@@ -6,10 +6,11 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/19 09:38:13 by troussel          #+#    #+#             */
-/*   Updated: 2013/12/22 16:00:05 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/24 15:00:51 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-# include "ftprintf.h"
+
+#include "ftprintf.h"
 
 static int	ft_chooser(char c, va_list ap)
 {
