@@ -43,8 +43,6 @@ static t_for	*parse_it(t_lex *lex_tree, t_for *for_tree)
 	return (for_tree);
 }
 
-#include <stdio.h>/*********/
-
 t_env			*runcore(const char *input, t_env *env)
 {
 	t_lex		*lex_tree;
@@ -59,17 +57,6 @@ t_env			*runcore(const char *input, t_env *env)
 	{
 		tree_walker(for_walker->wood, env);
 		for_walker = for_walker->nxt;
-		/**********************************************//*
-	t_venv *tmp;
-	tmp = env->var;
-	while (tmp)
-	{
-		printf("%s=%s\n",tmp->var, tmp->val);
-		tmp = tmp->nxt;
-	}
-	printf("\n\n\n\n\n\n");
-														*/
-/**********************************************/
 	}
 	if (!for_tree && lex_tree)
 		lex_tree = free_lex(lex_tree);
