@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/22 15:15:50 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/22 15:51:08 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/24 13:10:42 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int		changedir(t_cmd *dat, char *target, t_env *env);
 
 int		chk_access(char *target);
 int		chg_dir(char *target);
-t_venv	*updt_oldpwd(char *oldpwd, t_env *env);
-t_venv	*updt_pwd(char *target, t_env *env);
+t_env	*updt_oldpwd(char *oldpwd, t_env *env);
+t_env	*updt_pwd(char *target, t_env *env);
 void	show_change(t_env *env);
 
 #endif			/* !FTCD_H */

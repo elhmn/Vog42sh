@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/22 16:42:07 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/24 13:17:31 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static t_venv	*envbourne(char *name, t_venv *lst)
 	return (lst);
 }
 
-t_venv			*updt_oldpwd(char *oldpwd, t_env *env)
+t_env			*updt_oldpwd(char *oldpwd, t_env *env)
 {
 	t_venv		*old;
 	t_venv		*pwd;
@@ -59,7 +59,7 @@ t_venv			*updt_oldpwd(char *oldpwd, t_env *env)
 		if (!(pwd = findenv("PWD", env->var)) && ++flg)
 		{
 			error(UNDEF, "cd: can't set OLDPWD", 0);
-			return (env->var);
+			return (env);
 		}
 		else
 			oldpwd = pwd->var;
@@ -73,10 +73,10 @@ t_venv			*updt_oldpwd(char *oldpwd, t_env *env)
 	old->val = ft_strdup(oldpwd);
 	if (!flg)
 		free(oldpwd);
-	return (env->var);
+	return (env);
 }
 
-t_venv			*updt_pwd(char *target, t_env *env)
+t_env			*updt_pwd(char *target, t_env *env)
 {
 	t_venv		*pwd;
 	char		*apl;
@@ -94,7 +94,7 @@ t_venv			*updt_pwd(char *target, t_env *env)
 		pwd->val = apl;
 	else
 		pwd->val = ft_strdup(target);
-	return (env->var);
+	return (env);
 }
 
 void	show_change(t_env *env)

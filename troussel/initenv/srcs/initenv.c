@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/22 12:51:24 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/22 14:09:03 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/24 13:13:03 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ static t_path	*load_path(t_venv *varlst, t_path *lst)
 
 static t_env	*boot_env(t_env *env)
 {
-	if (!(env = (t_env*)malloc(sizeof(t_env))))
-		return (NULL);
+//	if (!(env = (t_env*)malloc(sizeof(t_env))))
+//		return (NULL);
 	env->var = NULL;
 	env->path = NULL;
 	env->env = NULL;

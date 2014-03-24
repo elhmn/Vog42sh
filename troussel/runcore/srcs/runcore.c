@@ -58,6 +58,7 @@ t_env			*runcore(const char *input, t_env *env)
 		tree_walker(for_walker->wood, env);
 		for_walker = for_walker->nxt;
 	}
+
 	if (!for_tree && lex_tree)
 		lex_tree = free_lex(lex_tree);
 	else
