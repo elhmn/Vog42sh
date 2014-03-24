@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/23 14:16:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/23 15:20:04 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/24 13:59:16 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include "ftsh_env.h"
 #include "ftsh.h"
 #include "libft.h"
+
+#include <stdio.h>/********/
+
 
 static char	*put_env(char *str, t_venv *var)
 {
@@ -45,7 +48,8 @@ void		echo_print(char *str, t_env *env, int *flag)
 		{
 			if (*str == '$')
 				str = put_env(str, env->var);
-			ft_putchar(*str);
+			else
+				ft_putchar(*str);
 			str++;
 		}
 		if (flag[0] != 'n')
