@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/23 14:16:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/24 16:48:09 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/25 14:31:27 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,18 @@
 
 #include <stdio.h>/********/
 
-
-static char	*put_env(char *str, t_venv *var)
+static char	*put_env(char *str, t_venv *var, t_env *env)
 {
 	char	*tmp;
 	int		ret;
 
 	ret = 200;
 	tmp = str + 1;
+	if (*tmp == '?')
+	{
+		ft_putnbr(env->last_ret);
+		return (tmp + 1);
+	}
 	while (var->nxt
 			&& (ret = ft_strncmp(tmp, var->var, ft_strlen(var->var))))
 		var = var->nxt;
@@ -37,7 +41,7 @@ static char	*put_env(char *str, t_venv *var)
 		ft_putstr(var->val);
 		return (str + ft_strlen(var->var));
 	}
-	return (str); //if var_env doesn't exist
+	return (ft_strchr(str, '$')); //if var_env doesn't exist
 }
 
 void		echo_print(char *str, t_env *env, int *flag)
@@ -47,9 +51,8 @@ void		echo_print(char *str, t_env *env, int *flag)
 		while (*str)
 		{
 			if (*str == '$')
-				str = put_env(str, env->var);
-			else
-				ft_putchar(*str);
+				str = put_env(str, env->var, env);
+			ft_putchar(*str);
 			str++;
 		}
 		if (flag[0] != 'n')

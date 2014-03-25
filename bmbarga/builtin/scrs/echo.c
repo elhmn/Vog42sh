@@ -6,13 +6,14 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/21 14:04:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/24 16:48:46 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/25 14:31:25 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftsh_env.h"
 #include "echo.h"
 #include "libft.h"
+#include <stdlib.h>
 //#include <stdio.h> /***************/
 
 static void rm_endspace(char *str)
@@ -34,7 +35,7 @@ static char	*maptostr(char **arg)
 	char	*tmp2;
 
 	i = 1;
-	str = NULL;
+	str = (char*)malloc(sizeof(char));
 	while (arg[i])
 	{
 		tmp1 = ft_strjoin(arg[i], " ");
@@ -66,9 +67,10 @@ int		ft_echo(t_cmd *cmd, t_env *env) //change the type of the first arg in cmd
 	}
 	else
 	{
-		checksyn(&opt, &str, flag);
-//		printf("2-> opt = [%s] && str = [%s]\n", opt, str); /*********************/
+		if (checksyn(&opt, &str, flag) == TRUE)
+			str++;
 		echo_print(str, env, flag);
+//		printf("2-> opt = [%s] && str = [%s]\n", opt, str); /*********************/
 	}
 	return (0);
 }

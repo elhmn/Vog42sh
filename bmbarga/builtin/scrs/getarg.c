@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/22 14:08:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/23 15:20:09 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/25 14:31:29 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int		checksyn(char **opt, char **str, int *flag)
 		*str = tmp2;
 		free(tmp1);
 		free(*opt);
-		return (TRUE);
+		return (FALSE);
 	}
 	return (TRUE);
 }
