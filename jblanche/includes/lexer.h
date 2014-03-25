@@ -6,13 +6,13 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 17:54:08 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/25 14:51:54 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/25 15:01:12 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEXER_H
 # define LEXER_H
-# include "../libft/includes/libft.h"
+# include "libft.h"
 # include "lexer.h"
 # include "ftsh.h"
 void	print_lex(t_lex *lex);
