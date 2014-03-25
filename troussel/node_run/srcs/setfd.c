@@ -41,21 +41,27 @@ int				setpipe(t_cmd *dat, int pip[1][2][2], int swtch)
 		return (0);
 }
 
+static int		openi(t_cmd *dat, int pip[1][2][2], int swtch)
+{
+	if (dat->pipe_r)
+		close(pip[0][!swtch][0]);
+	if ((pip[0][!swtch][0] = openfile(dat->ifile, 1, 0)) == -1)
+	{
+		error(UNDEF, dat->ifile, 0);
+		if (dat->pipe_w)
+			close(pip[0][swtch][1]);
+		return (1);
+	}
+	return (0);
+}
+
 int				setfdfil(t_cmd *dat, int pip[1][2][2], int swtch)
 {
 	int	err;
 
 	err = 0;
 	if (dat->ifile)
-	{
-		if (dat->pipe_r)
-			close(pip[0][!swtch][0]);
-		if ((pip[0][!swtch][0] = openfile(dat->ifile, 1, 0)) == -1)
-		{
-			error(UNDEF, dat->ifile, 0);
-			++err;
-		}
-	}
+		err += openi(dat, &pip[0], swtch);
 	if (dat->ofile)
 	{
 		if (dat->pipe_w)

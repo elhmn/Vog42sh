@@ -9,34 +9,36 @@
 /*   Updated: 2014/03/24 14:58:22 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "sig_handle.h"
+
+#include <signal.h>
+#include "libft.h"
 
 static void	sig_resp(int sig)
 {
 	if (sig == SIGUSR1 || sig == SIGUSR2)
 	{
-		ft_printf("\nexit\n");
+		ft_putstr("\nexit\n");
 		exit(0);
 	}
 	else if (sig == SIGSEGV || sig == SIGBUS)
 	{
-		ft_printf("something went wrong, escape sequence initiate\n");
+		ft_putstr("something went wrong, escape sequence initiate\n");
 		exit(-1);
 	}
-	else if (sig == SIGINFO)
-		ft_printf("$> ");
+	//	else if (sig == SIGINFO)
+	//		ft_putstr("$> ");
 	else
-		ft_printf("\n$> ");
+		ft_putstr("\n$> ");
 }
 
 void		sig_handle(void)
 {
-	signal(SIGINT, sig_resp);
-	signal(SIGINFO, sig_resp);
+	//	signal(SIGINT, sig_resp);
+	//	signal(SIGINFO, sig_resp);
 	signal(SIGUSR1, sig_resp);
 	signal(SIGUSR2, sig_resp);
 	signal(SIGQUIT, SIG_IGN);
-	signal(SIGSEGV, sig_resp);
-	signal(SIGBUS, sig_resp);
+	//	signal(SIGSEGV, sig_resp);
+	//	signal(SIGBUS, sig_resp);
 	signal(SIGTSTP, SIG_IGN);
 }

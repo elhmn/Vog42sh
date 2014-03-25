@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_sh.h                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/25 13:34:12 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/25 15:10:23 by troussel         ###   ########.fr       */
+/*   Created: 2013/12/02 15:49:36 by troussel          #+#    #+#             */
+/*   Updated: 2014/01/26 14:36:46 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef		MAINSH_H
-# define	MAINSH_H
-# include	"ftsh_env.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# include <unistd.h>
+# include <stdlib.h>
+# include <string.h>
+# include "libft.h"
+# define BUFF_SIZE 1
 
-void	sig_handle(void);
-t_env	*runcore(const char *input, t_env *env);
-t_env	*initenv(char **environ, t_env *env);
+typedef struct	s_chk
+{
+	char	*str;
+	size_t	size;
+}				t_chk;
 
-#endif		/* !MAINSH_H */
+int		get_next_line(int const fd, char **line);
+
+#endif /* !GET_NEXT_LINE_H */

@@ -41,6 +41,8 @@ void		error(int code, char *str, int esc_seq)
 		puterror(": ");
 	if (code)
 		code_seq(code);
+	if (!code && str)
+		puterror("\n");
 	if (esc_seq)
 	{
 		puterror("\nexit\n");
