@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 16:56:28 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/17 13:07:10 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/25 18:09:03 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,6 @@ int				node_run(t_cmd *dat, t_env *env)
 	if (isbuiltin(dat) || seekbin(dat, env->path) || !dat->prg)
 		return (launch(dat, env, pip, swtch));
 	else
-	{
-		error(CMDNF, dat->prg, 0);
 		return ((env->last_ret = cmd_nf(dat->prg)));
-	}
 	return (0);
 }

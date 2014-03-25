@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/25 13:37:29 by troussel          #+#    #+#             */
-/*   Updated: 2014/02/25 15:13:28 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/25 18:16:06 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		main(void)
 {
 	t_env		*env;
 	char		*buf;
+	int			getret;
 	
 	sig_handle();
 	env = NULL;
@@ -29,11 +30,14 @@ int		main(void)
 	while (42)
 	{
 		ft_putstr("$> ");
-		if (get_next_line(0, &buf) == -1)
+		if ((getret = get_next_line(0, &buf)) == -1)
 			error(UNDEF, "input acquisition fail hard", 1);
+		else if (getret == 0)
+			break ;
 		if (buf && buf[0])
 			env = runcore(buf, env);
 		ft_strdel(&buf);
 	}
+	ft_putendl("exit");
 	return (0);
 }

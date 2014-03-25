@@ -6,11 +6,12 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/24 14:23:31 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/25 17:03:38 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/25 18:18:17 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
+#include <unistd.h>
 #include "libft.h"
 
 static void	sig_resp(int sig)
@@ -34,11 +35,12 @@ static void	sig_resp(int sig)
 void		sig_handle(void)
 {
 	signal(SIGINT, sig_resp);
+	signal(SIGHUP, sig_resp);
 	signal(SIGINFO, sig_resp);
 	signal(SIGUSR1, sig_resp);
 	signal(SIGUSR2, sig_resp);
-	signal(SIGQUIT, SIG_IGN);
-	//	signal(SIGSEGV, sig_resp);
-	//	signal(SIGBUS, sig_resp);
+	signal(SIGQUIT, sig_resp);
+	signal(SIGSEGV, sig_resp);
+	signal(SIGBUS, sig_resp);
 	signal(SIGTSTP, SIG_IGN);
 }
