@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/24 14:23:31 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/24 14:58:22 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/25 17:03:38 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ static void	sig_resp(int sig)
 		ft_putstr("something went wrong, escape sequence initiate\n");
 		exit(-1);
 	}
-	//	else if (sig == SIGINFO)
-	//		ft_putstr("$> ");
+	else if (sig == SIGINFO)
+		ft_putstr("$> ");
 	else
 		ft_putstr("\n$> ");
 }
 
 void		sig_handle(void)
 {
-	//	signal(SIGINT, sig_resp);
-	//	signal(SIGINFO, sig_resp);
+	signal(SIGINT, sig_resp);
+	signal(SIGINFO, sig_resp);
 	signal(SIGUSR1, sig_resp);
 	signal(SIGUSR2, sig_resp);
 	signal(SIGQUIT, SIG_IGN);
