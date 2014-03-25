@@ -6,7 +6,7 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/27 14:36:49 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/23 13:03:34 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/25 14:01:24 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,12 @@ char			**ft_strsplit(char const *s, char c)
 	int		j;
 	char	**ret;
 
-<<<<<<< HEAD
 	ret = NULL;
 	if (s)
-=======
 	ft_putendl(s);
 	ft_strsplit_init(&i, &j, &count);
 	while (s[i++])
->>>>>>> e20a10ebbc678fba1b75ea3f9bdd294a9ab7ad0f
 	{
-		ft_strsplit_init(&i, &j, &count, &s);
 		while (s[i++])
 		{
 			if (s[i] == c)

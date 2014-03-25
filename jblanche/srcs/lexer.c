@@ -6,7 +6,7 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 17:48:45 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/25 12:06:39 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/25 14:04:33 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int			whoami_aux(char *line, int *tok)
 {
-	if (ft_strchr(line, '|'))
+	if (ft_strstr(line, "||"))
 	{
 		*tok = PIPE;
 		return (1);
@@ -29,7 +29,7 @@ static int			whoami_aux(char *line, int *tok)
 		*tok = AND;
 		return (1);
 	}
-	else if (ft_strstr(line, "||"))
+	else if (ft_strchr(line, '|'))
 	{
 		*tok = OR;
 		return (1);
