@@ -1,0 +1,1 @@
+gcc -Wall -Werror -Wextra -I headers/ ./srcs/main.c ./srcs/parse_syn.c ./srcs/syn_nxt.c ./srcs/tok_type.c ./srcs/error.c ./srcs/ft_puterror.c ./srcs/ft_putstr.c
