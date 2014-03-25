@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/12 12:41:53 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/25 14:36:59 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/25 14:42:06 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static char	*join_env(t_venv *var)
 		ccat[i] = var->var[i];
 	ccat[i] = '=';
 	j = -1;
-	while (var->val[++j])
+	while (var->val && var->val[++j])
 		ccat[++i] = var->val[j];
 	ccat[++i] = 0;
 	return (ccat);
