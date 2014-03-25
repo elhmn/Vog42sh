@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/23 14:16:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/25 14:31:27 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/25 14:38:15 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void		echo_print(char *str, t_env *env, int *flag)
 		{
 			if (*str == '$')
 				str = put_env(str, env->var, env);
-			ft_putchar(*str);
+			else
+				ft_putchar(*str);
 			str++;
 		}
 		if (flag[0] != 'n')
