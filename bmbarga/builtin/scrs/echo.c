@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/21 14:04:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/25 15:14:09 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/25 16:50:10 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,24 @@ static char	*maptostr(char **arg)
 	return (str);
 }
 
+#include <stdio.h>/*************/
+
 int		ft_echo(t_cmd *cmd, t_env *env) //change the type of the first arg in cmd
 {
 	char	*opt;
 	char	*str;
 	char	*arg;
 	int		flag[3] = {0};
+
+/********/
+	int i;
+
+	i = -1;
+	dprintf(2, "***************************\n");
+	while (cmd->arg[++i])
+		dprintf(2, "arg %d = [%s]\n", i, cmd->arg[i]);
+	dprintf(2, "***************************\n");
+/*******/
 
 	arg = maptostr(cmd->arg);
 	//	printf("STR = [%s]\n", arg);
@@ -72,5 +84,6 @@ int		ft_echo(t_cmd *cmd, t_env *env) //change the type of the first arg in cmd
 		echo_print(str, env, flag);
 	//		printf("2-> opt = [%s] && str = [%s]\n", opt, str); /*********************/
 	}
+	dprintf(2, "HELP\n");/********/
 	return (0);
 }
