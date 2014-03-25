@@ -6,33 +6,46 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 12:41:29 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/18 14:29:36 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/25 14:17:28 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lexer.h"
 
+static t_env	*ft_clear(t_venv *tmp, t_venv *bak, t_env *env)
+{
+	if (bak)
+		bak->nxt = tmp->nxt;
+	if (!bak)
+		env->var = env->var->nxt;
+	free(tmp->var);
+	free(tmp->val);
+	free(tmp);
+	tmp = NULL;
+	return (env);
+}
+
 int				ft_unsetenv(t_cmd *dat, t_env *env)
 {
 	t_venv		*tmp;
 	t_venv		*bak;
+	int			i;
 
-	if (!env || !env->path || !env->var || !env->env || !env->homedir)
+	tmp = NULL;
+	bak = NULL;
+	if (!env || !env->path || !env->var || !env->env)
 		return (-1);
-	tmp = env->var;
-	while (tmp && ft_strcmp(tmp->var, dat->arg[0]))
+	i = 0;
+	while (dat->arg[++i])
 	{
-		bak = tmp;
-		tmp = tmp->nxt;
-	}
-	if (!tmp)
-		return (-1);
-	else
-	{
-		bak->nxt = tmp->nxt;
-		free(tmp->var);
-		free(tmp->val);
-		tmp = NULL;
+		tmp = env->var;
+		while (tmp && ft_strcmp(tmp->var, dat->arg[i]))
+		{
+			bak = tmp;
+			tmp = tmp->nxt;
+		}
+		if (tmp)
+			env = ft_clear(tmp, bak, env);
 	}
 	return (0);
 }
