@@ -6,7 +6,7 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 12:41:29 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/25 14:46:04 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/25 14:47:30 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int				ft_setenv(t_cmd *dat, t_env *env)
 		arg = ft_strjoin(arg, dat->arg[2]);
 		env = add_venv(arg, env);
 	}
+	free(arg);
 	return (0);
 }
