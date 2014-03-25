@@ -6,7 +6,7 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 12:41:29 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/25 14:47:30 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/25 14:57:22 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int				ft_setenv(t_cmd *dat, t_env *env)
 	if (!dat || !env || !env->path || !env->var || !env->env || !dat->arg[1]
 		|| !dat->arg[2])
 		return (-1);
-	i = 0;
-	if (tmp = find_env_var(env, dat->arg[1]))
+	tmp = env->var;
+	if ((tmp = find_env_var(env, dat->arg[1])))
 	{
-		free(tmp->var->val);
-		tmp->var->val = ft_strdup(dat->arg[2]);
+		free(tmp->val);
+		tmp->val = ft_strdup(dat->arg[2]);
 	}
 	else
 	{
@@ -35,7 +35,7 @@ int				ft_setenv(t_cmd *dat, t_env *env)
 		arg = ft_strdup(dat->arg[1]);
 		arg = ft_strjoin(arg, '=');
 		arg = ft_strjoin(arg, dat->arg[2]);
-		env = add_venv(arg, env);
+		env->var = add_venv(arg, env->var);
 	}
 	free(arg);
 	return (0);
