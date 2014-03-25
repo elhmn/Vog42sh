@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/23 14:16:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/25 16:02:51 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/25 18:21:39 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "ftsh.h"
 #include "libft.h"
 
-#include <stdio.h>/********/
+//#include <stdio.h>/********/
 
 static int		spe_strlen(char *str)
 {
@@ -67,8 +67,12 @@ static char		*put_env(char *str, t_venv *var, t_env *env)
 
 void			echo_print(char *str, t_env *env, int *flag)
 {
+//	char 	*tmp;
+
+//	tmp = str;
 	if (str)
 	{
+	//	ft_putendl("/**********/");
 		while (*str)
 		{
 			if (*str == '$')
@@ -82,7 +86,9 @@ void			echo_print(char *str, t_env *env, int *flag)
 		}
 		if (flag[0] != 'n')
 			ft_putchar('\n');
+	//	ft_putendl("/**********/");
 	}
 	else
 		ft_putchar('\n');
+	//dprintf(2, "str = [%s]\n", tmp);
 }

@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/21 14:04:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/25 16:50:10 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/25 18:21:41 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,14 @@ static char	*maptostr(char **arg)
 
 	i = 1;
 	str = (char*)malloc(sizeof(char));
+	*str = '\0';
+//	dprintf(2, "tmp1 = [%s]\n", str);
 	while (arg[i])
 	{
 		tmp1 = ft_strjoin(arg[i], " ");
+//	dprintf(2, "tmp1 = [%s]\n", tmp1);
 		tmp2 = ft_strjoin(str, tmp1);
+	//dprintf(2, "tmp2 = [%s]\n", tmp2);
 		free(str);
 		str = tmp2;
 		free(tmp1);
@@ -61,16 +65,18 @@ int		ft_echo(t_cmd *cmd, t_env *env) //change the type of the first arg in cmd
 	int		flag[3] = {0};
 
 /********/
-	int i;
+//	int i;
 
-	i = -1;
-	dprintf(2, "***************************\n");
-	while (cmd->arg[++i])
-		dprintf(2, "arg %d = [%s]\n", i, cmd->arg[i]);
-	dprintf(2, "***************************\n");
+//	i = 0;
+//	dprintf(2, "***************************\n");
+//	while (cmd->arg[++i])
+//		dprintf(2, "arg %d = [%s]\n", i, cmd->arg[i]);
+//	dprintf(2, "***************************\n");
 /*******/
 
+//	ft_putendl("************* START *****************");
 	arg = maptostr(cmd->arg);
+//	dprintf(2, "str = [%s]\n", arg);
 	//	printf("STR = [%s]\n", arg);
 	if (!(str = get_arg(arg, &opt)))
 	{
@@ -84,6 +90,7 @@ int		ft_echo(t_cmd *cmd, t_env *env) //change the type of the first arg in cmd
 		echo_print(str, env, flag);
 	//		printf("2-> opt = [%s] && str = [%s]\n", opt, str); /*********************/
 	}
-	dprintf(2, "HELP\n");/********/
+//	ft_putendl("************* END *****************");
+//	dprintf(2, "HELP\n");/********/
 	return (0);
 }
