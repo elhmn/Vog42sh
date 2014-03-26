@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/22 14:08:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/26 12:19:18 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/26 13:03:44 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static char		*cpy_arg(char *arg)
 {
 	char	*str;
 	int		len;
-	char 	*tmp;
+	char	*tmp;
 
 	len = ft_strlen(arg);
 	if (!(str = (char*)malloc(sizeof(char) * (len + 1))))
@@ -56,7 +56,7 @@ static char		*cpy_arg(char *arg)
 	return (str);
 }
 
-char	*get_arg(char *arg, char **opt)
+char			*get_arg(char *arg, char **opt)
 {
 	char	*tmp;
 
@@ -83,13 +83,13 @@ static int		getflag(int *flag, char *opt)
 			flag[2] = 'E';
 		opt++;
 	}
-	if (*opt != 'n' && *opt != 'e' 
+	if (*opt != 'n' && *opt != 'e'
 			&& *opt != 'E' && *opt)
 		return (FALSE);
 	return (TRUE);
 }
 
-int		checksyn(char **opt, char **str, int *flag)
+int				checksyn(char **opt, char **str, int *flag)
 {
 	char	*tmp1;
 	char	*tmp2;

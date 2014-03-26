@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/23 14:18:34 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/23 15:22:27 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/26 13:17:06 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,4 @@ int		ft_echo(t_cmd *cmd, t_env *env);
 int		checksyn(char **opt, char **str, int *flag);
 char	*get_arg(char *arg, char **opt);
 
-#endif /* !ECHO_H */
+#endif

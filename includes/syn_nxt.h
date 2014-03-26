@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   echo.h                                             :+:      :+:    :+:   */
+/*   syn_nxt.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/23 14:18:34 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/26 13:17:06 by bmbarga          ###   ########.fr       */
+/*   Created: 2014/03/04 11:11:07 by bmbarga           #+#    #+#             */
+/*   Updated: 2014/03/26 13:47:13 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ECHO_H
-# define ECHO_H
-# include "ftsh_env.h"
-# include "ftsh.h"
-# include <string.h>
-# define FALSE 1
-# define TRUE 0
+#ifndef SYN_NXT_H
+# define SYN_NXT_H
 
-/*
-** getarg.c
-*/
-
-void	echo_print(char *str, t_env *env, int *flag);
-int		ft_echo(t_cmd *cmd, t_env *env);
-int		checksyn(char **opt, char **str, int *flag);
-char	*get_arg(char *arg, char **opt);
+int		syn_cmd(int tok_nxt);
+int		syn_separ(int tok_nxt);
+int		syn_file(int tok_nxt);
+int		syn_redir(int tok_nxt);
+int		syn_arg(int tok_nxt);
 
 #endif

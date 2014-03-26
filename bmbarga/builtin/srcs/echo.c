@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/21 14:04:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/26 12:19:07 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/26 13:10:41 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static void	rm_endspace(char *str)
+static void		rm_endspace(char *str)
 {
 	int		i;
 
@@ -26,7 +26,7 @@ static void	rm_endspace(char *str)
 	str[i] = '\0';
 }
 
-static char	*maptostr(char **arg)
+static char		*maptostr(char **arg)
 {
 	int		i;
 	char	*str;
@@ -51,13 +51,23 @@ static char	*maptostr(char **arg)
 	return (str);
 }
 
-int			ft_echo(t_cmd *cmd, t_env *env)
+static void		flag_init(int *tab, int size)
+{
+	int		i;
+
+	i = -1;
+	while (++i < size)
+		tab[i] = 0;
+}
+
+int				ft_echo(t_cmd *cmd, t_env *env)
 {
 	char	*opt;
 	char	*str;
 	char	*arg;
-	int		flag[3] = {0};
+	int		flag[3];
 
+	flag_init(flag, 3);
 	arg = maptostr(cmd->arg);
 	if (!(str = get_arg(arg, &opt)))
 		echo_print(arg, env, flag);

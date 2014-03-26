@@ -1,1 +1,1 @@
-gcc -Wall -Werror -Wextra scrs/echo.c scrs/echo_print.c scrs/getarg.c -L./ -lft -I./includes scrs/test/addvenv.c scrs/test/compute_path.c scrs/test/error.c scrs/test/ft_puterror.c scrs/test/initenv.c scrs/test/main.c
+gcc -Wall -Werror -Wextra srcs/echo.c srcs/echo_print.c srcs/getarg.c -L./ -lft -I./includes srcs/test/addvenv.c srcs/test/compute_path.c srcs/test/error.c srcs/test/ft_puterror.c srcs/test/initenv.c srcs/test/main.c
