@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/23 14:16:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/25 18:21:39 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/26 12:16:16 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 #include "ftsh_env.h"
 #include "ftsh.h"
 #include "libft.h"
-
-//#include <stdio.h>/********/
 
 static int		spe_strlen(char *str)
 {
@@ -61,34 +59,24 @@ static char		*put_env(char *str, t_venv *var, t_env *env)
 		ft_putstr(var->val);
 		return (str + spe_strlen(var->var));
 	}
-//	printf("\nTMP = [%s]\n", spe_strchr(tmp, '$')); /***************/
-	return (spe_strchr(tmp, '$')); //if var_env doesn't exist
+	return (spe_strchr(tmp, '$'));
 }
 
 void			echo_print(char *str, t_env *env, int *flag)
 {
-//	char 	*tmp;
-
-//	tmp = str;
 	if (str)
 	{
-	//	ft_putendl("/**********/");
 		while (*str)
 		{
 			if (*str == '$')
-			{
 				str = put_env(str, env->var, env);
-//				printf("LOL\n"); /************/
-			}
 			else
 				ft_putchar(*str);
 			str++;
 		}
 		if (flag[0] != 'n')
 			ft_putchar('\n');
-	//	ft_putendl("/**********/");
 	}
 	else
 		ft_putchar('\n');
-	//dprintf(2, "str = [%s]\n", tmp);
 }

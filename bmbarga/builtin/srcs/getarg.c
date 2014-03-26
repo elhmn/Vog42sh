@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/22 14:08:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/25 14:31:29 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/26 12:19:18 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "libft.h"
 #include "error_sh.h"
 #include "ftsh_env.h"
-//#include <stdio.h> /***************/
 
 static char		*cpy_opt(char *arg, char **opt)
 {
@@ -60,7 +59,7 @@ static char		*cpy_arg(char *arg)
 char	*get_arg(char *arg, char **opt)
 {
 	char	*tmp;
-	
+
 	tmp = NULL;
 	if (arg)
 	{
@@ -90,22 +89,14 @@ static int		getflag(int *flag, char *opt)
 	return (TRUE);
 }
 
-static void set_flag(int *flag)
-{
-	flag[0] = 0;
-	flag[1] = 0;
-	flag[2] = 0;
-}
-
 int		checksyn(char **opt, char **str, int *flag)
 {
 	char	*tmp1;
 	char	*tmp2;
 
-	if (getflag(flag, *opt) == FALSE) //strjoin "-opt" && "str"
+	if (getflag(flag, *opt) == FALSE)
 	{
-		set_flag(flag);
-//		printf("GET_FLAG == FALSE  ::-> opt = [%s] && str = [%s]\n", *opt, *str);
+		flag[0] = 0;
 		tmp1 = ft_strjoin("-", *opt);
 		tmp2 = ft_strjoin(tmp1, *str);
 		free(*str);
