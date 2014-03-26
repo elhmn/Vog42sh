@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/25 13:46:37 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/07 13:01:51 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/26 12:34:33 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef		ERRORSH_H
@@ -23,4 +23,4 @@
 void	puterror(char const *s);
 void	error(int code, char *str, int esc_seq);
 
-#endif		/* !ERRORSH_H */
+#endif /* !ERRORSH_H */

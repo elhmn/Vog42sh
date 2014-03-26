@@ -6,17 +6,13 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 11:15:31 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/11 17:44:53 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/26 12:32:13 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_syn.h"
 #include "ftsh.h"
 #include <stdio.h>
-
-void	parse_error(int tok_nxt);
-
-// regroupement de token par groupe
 
 static int	convert(int tok)
 {
@@ -31,8 +27,6 @@ static int	convert(int tok)
 	else
 		return (IN);
 }
-
-// initialisation du tableau de pointeur sur fonction
 
 static void	set_fptr(fptr *f)
 {
@@ -52,7 +46,7 @@ static int		check_syn(t_lex *lst)
 	tok = 0;
 	while (tok != lst->tok && tok < 11)
 		tok++;
-	if ((lst->tok == AND || lst->tok == OR) 
+	if ((lst->tok == AND || lst->tok == OR)
 			&& (lst->nxt->tok == VOID
 				|| is_arg(lst->nxt->tok)
 				|| is_fil(lst->nxt->tok)))
@@ -61,12 +55,10 @@ static int		check_syn(t_lex *lst)
 		return (FALSE);
 	}
 	if (tok == lst->tok)
-		if (!f[convert(tok)](lst->nxt->tok)) //test if tok match with tok_nxt
+		if (!f[convert(tok)](lst->nxt->tok))
 			return (FALSE);
 	return (TRUE);
 }
-
-// Check la syntaxe de la liste de token
 
 int		parse_syn(t_lex *lst)
 {
@@ -75,22 +67,17 @@ int		parse_syn(t_lex *lst)
 
 	i = 0;
 	tmp = lst;
-	if (lst->tok == AND || lst->tok == OR) 
+	if (lst->tok == AND || lst->tok == OR)
 	{
 		parse_error(lst->tok);
 		return (FALSE);
 	}
 	while (tmp && tmp->nxt)
 	{
-		//printlst(tmp);
-		//printf("tmp_lst_next[ i = %d ] = [ %s ]\n", i, tmp->nxt->elm);
-		//printf("tmp_lst_next_tok[ i = %d ] = [ %d ]\n", i, tmp->nxt->tok);
 		if (!check_syn(tmp))
 			return (FALSE);
-		//printf("tmp_lst[ %d ] = [ %s ]\n", i, tmp->elm);
 		tmp = tmp->nxt;
 		i++;
 	}
-	//printf("i = [ %d ]\n", i);
 	return (TRUE);
 }
