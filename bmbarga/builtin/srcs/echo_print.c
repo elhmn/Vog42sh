@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/23 14:16:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/26 12:16:16 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/26 14:47:07 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ static char		*put_env(char *str, t_venv *var, t_env *env)
 		ft_putnbr(env->last_ret);
 		return (tmp);
 	}
-	while (var->nxt
+	while (var && ar->nxt
 			&& (ret = ft_strncmp(tmp, var->var, spe_strlen(tmp))))
 		var = var->nxt;
-	if (!var->nxt)
+	if (var && !var->nxt)
 		ret = ft_strncmp(tmp, var->var, spe_strlen(tmp));
 	if (!ret)
 	{
