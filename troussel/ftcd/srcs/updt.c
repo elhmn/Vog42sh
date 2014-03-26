@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 11:46:14 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/24 13:17:31 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/26 13:11:29 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ t_env			*updt_pwd(char *target, t_env *env)
 	return (env);
 }
 
-void	show_change(t_env *env)
+void			show_change(t_env *env)
 {
 	t_venv		*pwd;
 
