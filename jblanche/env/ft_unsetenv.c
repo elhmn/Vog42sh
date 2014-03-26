@@ -46,6 +46,7 @@ int				ft_unsetenv(t_cmd *dat, t_env *env)
 		}
 		if (tmp)
 			env = ft_clear(tmp, bak, env);
+		bak = NULL;
 	}
 	return (0);
 }

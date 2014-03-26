@@ -26,8 +26,8 @@ static void	sig_resp(int sig)
 		ft_putstr("something went wrong, escape sequence initiate\n");
 		exit(-1);
 	}
-	else if (sig == SIGINFO)
-		ft_putstr("$> ");
+	//	else if (sig == SIGINFO)
+	//		ft_putstr("$> ");
 	else
 		ft_putstr("\n$> ");
 }
@@ -36,11 +36,11 @@ void		sig_handle(void)
 {
 	signal(SIGINT, sig_resp);
 	signal(SIGHUP, sig_resp);
-	signal(SIGINFO, sig_resp);
+	//	signal(SIGINFO, sig_resp);
 	signal(SIGUSR1, sig_resp);
 	signal(SIGUSR2, sig_resp);
 	signal(SIGQUIT, sig_resp);
-	signal(SIGSEGV, sig_resp);
-	signal(SIGBUS, sig_resp);
+	//	signal(SIGSEGV, sig_resp);
+	//signal(SIGBUS, sig_resp);
 	signal(SIGTSTP, SIG_IGN);
 }

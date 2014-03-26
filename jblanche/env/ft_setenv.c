@@ -37,7 +37,7 @@ int				ft_setenv(t_cmd *dat, t_env *env)
 	t_venv		*tmp;
 
 	tmp = NULL;
-	if (!dat || !env || !env->path || !env->var || !env->env || !dat->arg[1])
+	if (!dat || !env || !dat->arg[1])
 		return (-1);
 	tmp = env->var;
 	if ((tmp = find_env_var(env->var, dat->arg[1])))
