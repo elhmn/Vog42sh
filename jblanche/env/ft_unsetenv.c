@@ -6,7 +6,7 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 12:41:29 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/25 14:17:28 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/26 15:33:21 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static t_env	*ft_clear(t_venv *tmp, t_venv *bak, t_env *env)
 	free(tmp->val);
 	free(tmp);
 	tmp = NULL;
+	bak = NULL;
 	return (env);
 }
 
