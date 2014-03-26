@@ -6,7 +6,7 @@
 #    By: troussel <troussel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/26 13:03:46 by troussel          #+#    #+#              #
-#    Updated: 2014/03/26 14:44:20 by troussel         ###   ########.fr        #
+#    Updated: 2014/03/26 14:58:00 by bmbarga          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 NAME =	42sh
@@ -19,7 +19,7 @@ CFILES =	addvenv.c changedir.c chkaccess.c compute_path.c error.c execute.c\
 			parse_tok1.c parse_tok_tool.c parse_tree.c parse_tree_tool1.c\
 			parse_tree_tool2.c run_bin.c runcore.c seekbin.c setfd.c\
 			signal_handler.c tcmd_tool.c tild_replace.c ttree_tool.c updt.c\
-			builtin.c
+			builtin.c echo.c echo_print.c getarg.c
 
 SRC = $(addprefix $(SRCDIR), $(CFILES))
 GCC = gcc -Wall -Wextra -Werror
