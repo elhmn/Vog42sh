@@ -1,47 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_tok_tool.c                                   :+:      :+:    :+:   */
+/*   ttree_tool.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/28 16:58:16 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/26 13:37:27 by troussel         ###   ########.fr       */
+/*   Created: 2014/03/03 14:11:52 by troussel          #+#    #+#             */
+/*   Updated: 2014/03/11 17:11:09 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ftsh.h"
-#include "parse_tok.h"
+#include "parse_tree.h"
 #include "error_sh.h"
+#include <stdlib.h>
 
-t_tokl	*add_tokl(t_lex *lex, t_tokl *lst)
+t_tree			*add_leaf(t_cmd *elm)
 {
-	t_tokl	*new;
-	t_tokl	*tmp;
+	t_tree	*new;
 
-	if (!(new = (t_tokl*)malloc(sizeof(t_tokl))))
+	if (!(new = (t_tree*)malloc(sizeof(t_tree))))
 	{
 		error(0, "Out of memory", 0);
 		return (NULL);
 	}
-	new->lst = lex;
-	new->nxt = NULL;
-	if (!lst)
-		return (new);
-	tmp = lst;
-	while (tmp->nxt)
-		tmp = tmp->nxt;
-	tmp->nxt = new;
-	return (lst);
-}
-
-void	rmrf_lex(t_lex **lex)
-{
-	char	*str;
-
-	str = lex[0]->elm;
-	lex[0]->elm = NULL;
-	free(str);
-	str = NULL;
-	free(lex[0]);
-	lex[0] = NULL;
+	new->left = NULL;
+	new->right = NULL;
+	new->data = elm;
+	return (new);
 }

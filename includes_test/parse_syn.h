@@ -6,20 +6,22 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 11:25:08 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/11 14:56:45 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/26 12:34:46 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSE_SYN_H
 # define PARSE_SYN_H
 
-# define TRUE 1
-# define FALSE 0
+# define TRUE	1
+# define FALSE	0
 # include <stdlib.h>
 # include "tok_type.h"
 # include "syn_nxt.h"
 # include "ftsh.h"
 
 typedef int	(*fptr)(int);
+void		parse_error(int tok_nxt);
+int			parse_syn(t_lex *lst);
 
 #endif /* !PARSE_SYN_H */

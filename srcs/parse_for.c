@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_tok_tool.c                                   :+:      :+:    :+:   */
+/*   parse_for.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/28 16:58:16 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/26 13:37:27 by troussel         ###   ########.fr       */
+/*   Created: 2014/03/13 13:20:20 by troussel          #+#    #+#             */
+/*   Updated: 2014/03/18 16:10:21 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ftsh.h"
-#include "parse_tok.h"
 #include "error_sh.h"
+#include <stdlib.h>
 
-t_tokl	*add_tokl(t_lex *lex, t_tokl *lst)
+static t_for	*init_tree(t_tree *wood, t_for *new)
 {
-	t_tokl	*new;
-	t_tokl	*tmp;
+	new->wood = wood;
+	new->nxt = NULL;
+	return (new);
+}
 
-	if (!(new = (t_tokl*)malloc(sizeof(t_tokl))))
+t_for			*add_tree(t_tree *wood, t_for *lst)
+{
+	t_for	*tmp;
+	t_for	*new;
+
+	if (!(new = (t_for*)malloc(sizeof(t_for) * 1)))
 	{
 		error(0, "Out of memory", 0);
 		return (NULL);
 	}
-	new->lst = lex;
-	new->nxt = NULL;
+	new = init_tree(wood, new);
 	if (!lst)
 		return (new);
 	tmp = lst;
@@ -34,14 +41,22 @@ t_tokl	*add_tokl(t_lex *lex, t_tokl *lst)
 	return (lst);
 }
 
-void	rmrf_lex(t_lex **lex)
+t_for			*parse_for(t_tokl *lst)
 {
-	char	*str;
+	t_tokl	*tmp;
+	t_for	*forest;
+	t_tree	*atree;
 
-	str = lex[0]->elm;
-	lex[0]->elm = NULL;
-	free(str);
-	str = NULL;
-	free(lex[0]);
-	lex[0] = NULL;
+	tmp = lst;
+	forest = NULL;
+	atree = NULL;
+	while (tmp)
+	{
+		if (!(atree = parse_tree(tmp->lst, NULL, 0)))
+			return (NULL);
+		if (!(forest = add_tree(atree, forest)))
+			return (NULL);
+		tmp = tmp->nxt;
+	}
+	return (forest);
 }
