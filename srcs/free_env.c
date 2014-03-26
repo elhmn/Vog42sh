@@ -6,11 +6,10 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/26 17:15:29 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/26 17:38:17 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/26 17:43:18 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftsh_env.h"
 #include "ftsh.h"
 #include <stdlib.h>
 
@@ -41,6 +40,6 @@ static void free_var(t_venv *varenv)
 void	free_env(t_env *env)
 {
 	free_path(env->path);
-	free_path(env->var);
+	free_var(env->var);
 	free(env);
 }
