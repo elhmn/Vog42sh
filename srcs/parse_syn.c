@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 11:15:31 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/26 12:32:13 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/27 12:36:39 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int		parse_syn(t_lex *lst)
 
 	i = 0;
 	tmp = lst;
-	if (lst->tok == AND || lst->tok == OR)
+	if (lst->tok == AND || lst->tok == OR || lst->tok == PIPE)
 	{
 		parse_error(lst->tok);
 		return (FALSE);
