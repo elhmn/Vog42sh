@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tok_type.h                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/04 10:35:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/04 16:13:28 by bmbarga          ###   ########.fr       */
+/*   Created: 2013/11/22 17:27:04 by troussel          #+#    #+#             */
+/*   Updated: 2013/12/19 11:19:38 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ftprintf.h"
 
-#ifndef TOK_TYPE_H
-# define TOK_TYPE_H
+void	ft_putstr(const char *s)
+{
+	int	i;
 
-int		is_cmd(int token);
-int		is_fil(int token);
-int		is_arg(int token);
-int		is_redir(int token);
-int		is_separ(int token);
-
-#endif /* !TOK_TYPE_H */
+	i = -1;
+	while (s[++i])
+		write(1, &s[i], 1);
+}

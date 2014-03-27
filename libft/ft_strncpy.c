@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tok_type.h                                         :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/04 10:35:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/04 16:13:28 by bmbarga          ###   ########.fr       */
+/*   Created: 2013/11/20 10:16:35 by troussel          #+#    #+#             */
+/*   Updated: 2013/11/25 16:46:17 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef TOK_TYPE_H
-# define TOK_TYPE_H
+char	*ft_strncpy(char *s1, const char *s2, size_t n)
+{
+	int	i;
 
-int		is_cmd(int token);
-int		is_fil(int token);
-int		is_arg(int token);
-int		is_redir(int token);
-int		is_separ(int token);
-
-#endif /* !TOK_TYPE_H */
+	i = -1;
+	while (++i != (int)n)
+	{
+		if (i <= (int)ft_strlen(s2))
+			s1[i] = s2[i];
+		else
+			s1[i] = '\0';
+	}
+	return (s1);
+}

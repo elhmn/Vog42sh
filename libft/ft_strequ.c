@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tok_type.h                                         :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/04 10:35:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/04 16:13:28 by bmbarga          ###   ########.fr       */
+/*   Created: 2013/11/24 19:55:29 by troussel          #+#    #+#             */
+/*   Updated: 2013/11/30 18:02:16 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef TOK_TYPE_H
-# define TOK_TYPE_H
+int	ft_strequ(char const *s1, char const *s2)
+{
+	int	res;
 
-int		is_cmd(int token);
-int		is_fil(int token);
-int		is_arg(int token);
-int		is_redir(int token);
-int		is_separ(int token);
-
-#endif /* !TOK_TYPE_H */
+	if (s1 == NULL || s2 == NULL)
+		return (-1);
+	res = ft_strcmp(s1, s2);
+	if (res == 0)
+		return (1);
+	else
+		return (0);
+	return (0);
+}

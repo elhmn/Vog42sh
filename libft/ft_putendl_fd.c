@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tok_type.h                                         :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/04 10:35:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/04 16:13:28 by bmbarga          ###   ########.fr       */
+/*   Created: 2013/11/24 15:54:20 by troussel          #+#    #+#             */
+/*   Updated: 2013/11/24 15:54:21 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef TOK_TYPE_H
-# define TOK_TYPE_H
-
-int		is_cmd(int token);
-int		is_fil(int token);
-int		is_arg(int token);
-int		is_redir(int token);
-int		is_separ(int token);
-
-#endif /* !TOK_TYPE_H */
+void	ft_putendl_fd(char const *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}

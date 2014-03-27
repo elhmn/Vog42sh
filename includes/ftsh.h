@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 15:41:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/26 13:38:35 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/27 11:59:42 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ void		sig_handle(void);
 void		prompt(char *str);
 int			get_next_line(int const fd, char **line);
 
-t_lex		*lexer(char *str) 
+t_lex		*lexer(char *str);
 t_for		*parser(t_lex *lst);
 int			parse_syn(t_lex *lst);
-t_tokl		*parse_tok(t_lex *lst)
+t_tokl		*parse_tok(t_lex *lst);
 t_for		*parse_for(t_tokl *lst);
 t_tree		*parse_tree(t_lex *lst, t_cmd *prv, int flg_pipe); 
 t_for		*add_tree(t_tree *wood, t_for *lst);

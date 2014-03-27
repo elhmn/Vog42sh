@@ -5,22 +5,24 @@
 #                                                     +:+ +:+         +:+      #
 #    By: troussel <troussel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2014/03/26 13:03:46 by troussel          #+#    #+#              #
-#    Updated: 2014/03/26 15:04:23 by bmbarga          ###   ########.fr        #
+#    Created: 2013/12/26 16:08:30 by troussel          #+#    #+#              #
+#    Updated: 2014/03/27 11:56:49 by troussel         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 NAME =	42sh
 
 SRCDIR = srcs/
 
-CFILES =	addvenv.c changedir.c chkaccess.c compute_path.c error.c execute.c\
-			free_for.c ft_puterror.c ftcd.c ftexit.c get_next_line.c\
-			gethomedir.c getinput.c initenv.c main.c node_run.c parse_for.c\
-			parse_tok1.c parse_tok_tool.c parse_tree.c parse_tree_tool1.c\
-			parse_tree_tool2.c run_bin.c runcore.c seekbin.c setfd.c\
-			signal_handler.c tcmd_tool.c tild_replace.c ttree_tool.c updt.c\
-			builtin.c echo.c echo_print.c getarg.c parse_syn.c syn_next_tools.c\
-			syn_next.c tok_type.c tree_walker.c tree_walker2.c
+CFILES =	addvenv.c builtin.c changedir.c chkaccess.c compute_path.c echo.c\
+			echo_print.c env_tools.c envdup.c error.c execute.c free_env.c\
+			free_for.c ft_env.c ft_puterror.c ft_setenv.c ft_unsetenv.c\
+			ftcd.c ftexit.c get_next_line.c getarg.c gethomedir.c getinput.c\
+			initenv.c lex_tools.c lexer.c lexer_aux.c main.c node_run.c\
+			parse_for.c parse_syn.c parse_tok1.c parse_tok_tool.c\
+			parse_tree.c parse_tree_tool1.c parse_tree_tool2.c run_bin.c\
+			runcore.c seekbin.c setfd.c signal_handler.c syn_next_tools.c\
+			syn_nxt.c tcmd_tool.c tild_replace.c tok_type.c tools.c\
+			tree_walker.c tree_walker2.c ttree_tool.c updt.c
 
 SRC = $(addprefix $(SRCDIR), $(CFILES))
 GCC = gcc -Wall -Wextra -Werror

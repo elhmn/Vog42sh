@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tok_type.h                                         :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/04 10:35:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/04 16:13:28 by bmbarga          ###   ########.fr       */
+/*   Created: 2013/11/27 13:49:38 by troussel          #+#    #+#             */
+/*   Updated: 2013/11/30 17:53:52 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef TOK_TYPE_H
-# define TOK_TYPE_H
+void	ft_striter(char *s, void (*f)(char *))
+{
+	int	i;
 
-int		is_cmd(int token);
-int		is_fil(int token);
-int		is_arg(int token);
-int		is_redir(int token);
-int		is_separ(int token);
-
-#endif /* !TOK_TYPE_H */
+	if (s != NULL && f != NULL)
+	{
+		i = -1;
+		while (s[++i])
+			(*f)(&s[i]);
+	}
+}
