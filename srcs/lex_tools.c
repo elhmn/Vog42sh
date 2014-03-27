@@ -6,27 +6,11 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 17:53:26 by jblanche          #+#    #+#             */
-/*   Updated: 2014/02/28 18:59:53 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/27 12:41:50 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lexer.h"
-
-void			print_lex(t_lex *lex)
-{
-	if (!lex || !lex->elm)
-		ft_printf("pas de lex !\n");
-	while (lex)
-	{
-		if (lex->tok == VOID)
-			break ;
-		ft_printf("\n/------------------\n");
-		ft_printf("elm = %s\n", lex->elm);
-		ft_printf("tok = %d\n", lex->tok);
-		ft_printf("------------------/\n");
-		lex = lex->nxt;
-	}
-}
 
 t_lex			*init_lex(t_lex *lex)
 {

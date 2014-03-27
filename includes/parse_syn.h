@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 11:25:08 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/26 12:34:46 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/27 12:55:52 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,4 @@ typedef int	(*fptr)(int);
 void		parse_error(int tok_nxt);
 int			parse_syn(t_lex *lst);
 
-#endif /* !PARSE_SYN_H */
+#endif

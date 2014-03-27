@@ -6,7 +6,7 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/26 15:47:38 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/27 11:42:06 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 12:56:57 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ int				ft_env(t_cmd *dat, t_env *env)
 		print_env(env->var);
 		return (0);
 	}
-
 	if (ft_strcmp(dat->arg[1], "-i"))
 		tmp = envdup(env, 0);
 	else

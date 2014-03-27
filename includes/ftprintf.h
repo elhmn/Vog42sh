@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/19 09:38:43 by troussel          #+#    #+#             */
-/*   Updated: 2014/01/29 10:59:14 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 12:39:39 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FTPRINTF_H
@@ -30,4 +30,4 @@ int		ft_putstri(char c, char *str);
 int		ft_pint(char c, int num);
 int		ft_putcar(char c);
 
-#endif /* !FTPRINTF_H */
+#endif
