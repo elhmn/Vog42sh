@@ -6,7 +6,7 @@
 #    By: troussel <troussel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/26 16:08:30 by troussel          #+#    #+#              #
-#    Updated: 2014/03/27 14:54:17 by troussel         ###   ########.fr        #
+#    Updated: 2014/03/27 15:57:35 by troussel         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 NAME =	42sh
@@ -25,7 +25,7 @@ CFILES =	addvenv.c builtin.c changedir.c chkaccess.c compute_path.c echo.c\
 			tree_walker.c tree_walker2.c ttree_tool.c updt.c
 
 SRC = $(addprefix $(SRCDIR), $(CFILES))
-GCC = gcc -Wall -Wextra -Werror -g
+GCC = gcc -Wall -Wextra -Werror
 OBJ = $(SRC:.c=.o)
 HDDIR = includes/
 
