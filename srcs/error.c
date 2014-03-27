@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/25 13:52:07 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/27 13:28:04 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 15:12:19 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "error_sh.h"
@@ -14,7 +14,7 @@
 static void	code_seq(int code)
 {
 	if (code == CMDNF)
-		puterror(": command not found\n");
+		puterror("command not found\n");
 	else if (code == ARG_M)
 		puterror("Too many arguments\n");
 	else if (code == ARG_F)
