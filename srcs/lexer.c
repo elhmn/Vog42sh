@@ -6,7 +6,7 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 17:48:45 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/25 14:19:34 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:50:15 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 static int			whoami_aux(char *line, int *tok)
 {
-	if (ft_strstr(line, "||"))
+	if (!ft_strcmp(line, "||"))
 	{
 		*tok = OR;
 		return (1);
 	}
-	else if (ft_strchr(line, ';'))
+	else if (!ft_strcmp(line, ";"))
 	{
 		*tok = SEMIC;
 		return (1);
 	}
-	else if (ft_strstr(line, "&&"))
+	else if (!ft_strcmp(line, "&&"))
 	{
 		*tok = AND;
 		return (1);
 	}
-	else if (ft_strchr(line, '|'))
+	else if (!ft_strcmp(line, "|"))
 	{
 		*tok = PIPE;
 		return (1);
@@ -43,17 +43,17 @@ static int			whoami_aux(char *line, int *tok)
 
 static int			whoami(char *line, int *tok)
 {
-	if (ft_strchr(line, '>'))
+	if (!ft_strcmp(line, ">"))
 	{
 		*tok = OUT;
 		return (0);
 	}
-	else if (ft_strchr(line, '<'))
+	else if (!ft_strcmp(line, "<"))
 	{
 		*tok = IN;
 		return (0);
 	}
-	else if (ft_strstr(line, ">>"))
+	else if (!ft_strcmp(line, ">>"))
 	{
 		*tok = APP;
 		return (0);

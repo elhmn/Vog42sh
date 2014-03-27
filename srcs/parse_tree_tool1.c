@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/03 14:17:09 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/13 15:17:24 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:55:52 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ftsh.h"
@@ -29,7 +29,7 @@ t_lex		*treat_inf(char **ifile, t_lex *tok)
 	if (tok->tok != IN || !tok->nxt || tok->nxt->tok != FIL || !tok->nxt->elm)
 		error(0, "Parse anomaly", 1);
 	tmp = tok;
-	while (tmp->nxt->nxt->tok == IN)
+	while (tmp && tmp->nxt && tmp->nxt->nxt && tmp->nxt->nxt->tok == IN)
 		tmp = tmp->nxt->nxt;
 	if (tmp->tok != IN || !tmp->nxt || tmp->nxt->tok != FIL || !tmp->nxt->elm)
 		error(0, "Parse anomaly", 1);
