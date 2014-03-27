@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 11:10:04 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/27 13:15:43 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:56:04 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 int		syn_cmd(int tok_nxt)
 {
 	if (!is_separ(tok_nxt)
-		&& !is_redir(tok_nxt)
-		&& !is_arg(tok_nxt)
-		&& !is_fil(tok_nxt)
-		&& tok_nxt != VOID)
+			&& !is_redir(tok_nxt)
+			&& !is_arg(tok_nxt)
+			&& !is_fil(tok_nxt)
+			&& tok_nxt != VOID)
 		return (FALSE);
 	return (TRUE);
 }
