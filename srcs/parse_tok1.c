@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/28 16:56:28 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/11 15:51:08 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:38:15 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ftsh.h"
@@ -35,6 +35,16 @@ static t_lex	*clear_void(t_lex *lst)
 	return (lst);
 }
 
+static t_lex	*clear_semic(t_lex *lst)
+{
+	t_lex	*tmp;
+
+	tmp = lst;
+	while (tmp && tmp->tok == SEMIC)
+		tmp = tmp->nxt;
+	return (tmp);
+}
+
 t_tokl			*parse_tok(t_lex *lexlst)
 {
 	t_tokl	*tokl;
@@ -42,6 +52,7 @@ t_tokl			*parse_tok(t_lex *lexlst)
 	t_lex	*tmp;
 
 	lexlst = clear_void(lexlst);
+	lexlst = clear_semic(lexlst);
 	if (!lexlst)
 		return (NULL);
 	tokl = NULL;

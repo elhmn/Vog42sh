@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/24 14:28:09 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/24 14:28:12 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:37:20 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ static t_for	*parse_it(t_lex *lex_tree, t_for *for_tree)
 
 	if (!parse_syn(lex_tree))
 		return (NULL);
-	tokl_tree = parse_tok(lex_tree);
+	if (!(tokl_tree = parse_tok(lex_tree)))
+		return (NULL);
 	for_tree = parse_for(tokl_tree);
 	tokl_tree = free_tokl(tokl_tree);
 	return (for_tree);
@@ -63,7 +64,8 @@ t_env			*runcore(const char *input, t_env *env)
 
 	for_tree = NULL;
 	lex_tree = lexer((char*)input);
-	for_tree = parse_it(lex_tree, for_tree);
+	if (!(for_tree = parse_it(lex_tree, for_tree)))
+		return (env);
 	for_walker = for_tree;
 	while (for_walker)
 	{
