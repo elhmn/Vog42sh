@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 16:04:07 by troussel          #+#    #+#             */
-/*   Updated: 2014/01/26 14:37:37 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 13:33:09 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -33,8 +33,8 @@ int			ft_atoi(const char *str)
 		i++;
 	if (str[i] == 45)
 	{
-			neg++;
-			i++;
+		neg++;
+		i++;
 	}
 	while (str[i] && ft_isdigit(str[i]))
 	{
