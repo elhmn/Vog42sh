@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/26 12:28:23 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/26 12:33:31 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/27 13:16:43 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "parse_syn.h"
 #include "error_sh.h"
 
-static char	*tok_to_char(int  tok)
+static char	*tok_to_char(int tok)
 {
 	if (tok == IN)
 		return ("<");
@@ -34,7 +34,7 @@ static char	*tok_to_char(int  tok)
 		return ("|");
 	else if (tok == OR)
 		return ("||");
-	else 
+	else
 		return ("newline");
 }
 

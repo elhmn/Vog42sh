@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/22 12:51:24 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/26 13:16:55 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 13:26:49 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ static t_env	*boot_env(t_env *env)
 t_env			*initenv(char **environ, t_env *env)
 {
 	if (!(env = boot_env(env)))
-		error(0, "Can't load env\n", 1);
+		error(0, "Can't load env", 1);
 	if (!(env->var = load_env(environ, env->var)))
-		error(0, "Can't load path\n", 1);
+		error(0, "Can't load path", 1);
 	if (!(env->path = load_path(env->var, env->path)))
-		error(0, "Can't load path\n", 1);
+		error(0, "Can't load path", 1);
 	return (env);
 }

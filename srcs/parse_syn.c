@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 11:15:31 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/27 12:36:39 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 13:23:06 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	convert(int tok)
 		return (IN);
 }
 
-static void	set_fptr(fptr *f)
+static void	set_t_fptr(t_fptr *f)
 {
 	f[0] = &syn_cmd;
 	f[1] = &syn_arg;
@@ -37,12 +37,12 @@ static void	set_fptr(fptr *f)
 	f[4] = &syn_separ;
 }
 
-static int		check_syn(t_lex *lst)
+static int	check_syn(t_lex *lst)
 {
 	int		tok;
-	fptr	f[5] = {NULL};
+	t_fptr	f[5];
 
-	set_fptr(f);
+	set_t_fptr(f);
 	tok = 0;
 	while (tok != lst->tok && tok < 11)
 		tok++;
@@ -60,7 +60,7 @@ static int		check_syn(t_lex *lst)
 	return (TRUE);
 }
 
-int		parse_syn(t_lex *lst)
+int			parse_syn(t_lex *lst)
 {
 	t_lex	*tmp;
 	int		i;

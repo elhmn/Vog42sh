@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 10:34:39 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/26 12:32:51 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/27 13:14:35 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,10 @@ int		is_arg(int token)
 
 int		is_redir(int token)
 {
-	return (token == IN || token == OUT
-			|| token == APP);
+	return (token == IN || token == OUT || token == APP);
 }
 
 int		is_separ(int token)
 {
-	return (token == PIPE || token == SEMIC
-			|| token == OR || token == AND);
+	return (token == PIPE || token == SEMIC || token == OR || token == AND);
 }
