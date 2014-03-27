@@ -6,10 +6,10 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/22 15:24:37 by troussel          #+#    #+#             */
-/*   Updated: 2013/12/22 15:56:40 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 13:48:25 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-# include "ftprintf.h"
+#include "ftprintf.h"
 
 int	ft_putcar(char c)
 {
