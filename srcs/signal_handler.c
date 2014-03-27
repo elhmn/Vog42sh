@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/24 14:23:31 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/26 13:39:36 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 13:56:34 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ static void	sig_resp(int sig)
 		exit(-1);
 	}
 	else if (sig == SIGINFO)
-		ft_putstr("$> ");
+		ft_putstr("\033[32m$> \033[0m");
 	else
-		ft_putstr("\n$> ");
+		ft_putstr("\n\033[32m$> \033[0m");
 }
 
 void		sig_handle(void)

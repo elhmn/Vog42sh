@@ -6,7 +6,7 @@
 /*   By: troussel <troussel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/25 13:37:29 by troussel          #+#    #+#             */
-/*   Updated: 2014/03/26 13:21:17 by troussel         ###   ########.fr       */
+/*   Updated: 2014/03/27 13:55:24 by jblanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		main(void)
 	env = initenv(environ, env);
 	while (42)
 	{
-		ft_putstr("$> ");
+		ft_putstr("\033[32m$> \033[0m");
 		if ((getret = get_next_line(0, &buf)) == -1)
 			error(UNDEF, "input acquisition fail hard", 1);
 		else if (getret == 0)
