@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/12 12:41:53 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/03/26 12:36:36 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/03/27 11:40:51 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ static char	*join_env(t_venv *var)
 	int			j;
 	char		*ccat;
 
-	i = ft_strlen(var->var);
-	i += ft_strlen(var->val) + 2;
+	i = ft_strlen(var->var) + 2;
+	if (var->val)
+		i += ft_strlen(var->val);
+	if (i > 300)
+		return (ft_strdup("OMITTED VARIABLE"));
 	if (!(ccat = (char*)malloc(sizeof(char) * i)))
 		return (NULL);
 	ccat[i - 1] = 0;
@@ -47,7 +50,7 @@ static char	*join_env(t_venv *var)
 		ccat[i] = var->var[i];
 	ccat[i] = '=';
 	j = -1;
-	while (var->val[++j])
+	while (var->val && var->val[++j])
 		ccat[++i] = var->val[j];
 	ccat[++i] = 0;
 	return (ccat);

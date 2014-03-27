@@ -6,13 +6,12 @@
 /*   By: jblanche <jblanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 12:41:29 by jblanche          #+#    #+#             */
-/*   Updated: 2014/03/26 18:30:10 by jblanche         ###   ########.fr       */
+/*   Updated: 2014/03/27 10:46:45 by troussel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ftsh_env.h"
-#include "printf.h"
 
 t_venv				*find_env_var(t_venv *env, char *var)
 {
@@ -29,13 +28,18 @@ void				print_env(t_venv *env)
 	t_venv			*tmp;
 
 	tmp = NULL;
-	if (!lst)
-		return (0);
-	tmp = lst;
-	while (tmp)
+	if (env)
 	{
-		ft_printf("%s=%s\n", tmp->var, tmp->val);
-		tmp = tmp->nxt;
+		tmp = env;
+		while (tmp)
+		{
+			ft_putstr(tmp->var);
+			ft_putchar('=');
+			if (tmp->val)
+				ft_putendl(tmp->val);
+			else
+				ft_putchar('\n');
+			tmp = tmp->nxt;
+		}
 	}
-	return (0);
 }
